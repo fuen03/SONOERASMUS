@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Racconta la tua esperienza — SonoErasmus+</title>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/esperienze.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <button class="menu-toggle" id="openMenu" aria-label="Apri menu">
+        <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
+      </button>
+
+      <a class="brand" href="index.html" aria-label="SonoErasmus+ Home">
+       <svg class="brand-logo" width="164" height="28" viewBox="0 0 164 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <text x="0" y="22" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="24" font-weight="900" fill="#c62828">Sono</text>
+          <text x="60" y="22" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="24" font-weight="900" fill="#8e0000">Erasmus+</text>
+        </svg>
+    </a>
+
+
+
+      <nav class="desktop-nav" aria-label="Navigazione principale">
+        <a href="index.html">Pagina Iniziale</a>
+        <a href="app/universita.php">Università</a>
+        <a href="esperienze.html">Esperienza Erasmus</a>
+        <a href="app/cosafare.php">Cosa Fare</a>
+        <a href="app/contatti.php">Contatti e link</a>
+      </nav>
+
+            <div class="auth-actions">
+        <a class="btn-login" href="login.html">Accedi</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MENÚ MÓVIL -->
+  <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <button class="close-menu" id="closeMenu" aria-label="Chiudi menu">×</button>
+      <nav class="mobile-cards" aria-label="Menu mobile">
+        <a class="card-link" href="index.html"><span>Pagina Iniziale</span><span class="card-chevron"></span></a>
+        <a class="card-link" href="app/universita.php"><span>Università</span><span class="card-chevron"></span></a>
+        <a class="card-link" href="esperienze.html"><span>Esperienza Erasmus</span><span class="card-chevron"></span></a>
+        <a class="card-link is-selected" href="racconta.html"><span>Racconta la tua esperienza</span><span class="card-chevron"></span></a>
+        <a class="card-link" href="app/cosafare.php"><span>Cosa Fare</span><span class="card-chevron"></span></a>
+        <a class="card-link" href="app/contatti.php"><span>Contatti e link</span><span class="card-chevron"></span></a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="esperienze.html">Esperienze Erasmus</a></li>
+      <li aria-current="page">Racconta la tua esperienza</li>
+    </ol>
+  </nav>
+
+  <!-- FORMULARIO -->
+  <section class="section racconta-wrap" aria-labelledby="raccontaTit">
+    <h1 id="raccontaTit" class="exp-title">Racconta la tua esperienza</h1>
+    <p class="exp-lead" style="text-align:center;margin-bottom:1rem">Condividi consigli, foto e università in cui sei stato.</p>
+
+    <form class="racconta-form" id="raccontaForm" action="#" method="post" novalidate>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="nome">Il tuo nome</label>
+          <input id="nome" name="nome" type="text" required>
+        </div>
+        <div class="form-field">
+          <label for="universita">Università</label>
+          <select id="universita" name="universita" required>
+            <option value="" selected disabled>Seleziona</option>
+            <option>Università di Padova</option>
+            <option>Università di Firenze</option>
+            <option>Università di Roma</option>
+            <option>Università di Udine</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="periodo">Periodo</label>
+          <select id="periodo" name="periodo" required>
+            <option value="" selected disabled>Seleziona</option>
+            <option>Fatta</option>
+            <option>In corso</option>
+            <option>Futura</option>
+            <option>Curioso</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="titolo">Titolo esperienza</label>
+          <input id="titolo" name="titolo" type="text" placeholder="Es. Semestre a Padova">
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="testo">Racconto</label>
+        <textarea id="testo" name="testo" rows="6" placeholder="Consigli, alloggio, trasporti, vita universitaria…" required></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="foto">Foto (opzionale)</label>
+          <input id="foto" name="foto" type="file" accept="image/*">
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn-primary" type="submit">Invia esperienza</button>
+        <a class="btn-secondary" href="esperienze.html">Annulla</a>
+      </div>
+
+      <p class="form-note">* In questa demo il salvataggio è simulato (solo front‑end).</p>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">SE+</div>
+        <p class="footer-desc">SonoErasmus+ aiuta gli studenti a orientarsi tra università, città, eventi e vita quotidiana in Italia.</p>
+      </div>
+      <nav class="footer-links" aria-label="Mappa">
+        <strong class="footer-title">Mappa</strong>
+        <a href="index.html">Home</a>
+        <a href="app/universita.php">Università</a>
+        <a href="esperienze.html">Esperienze</a>
+        <a href="app/cosafare.php">Cosa Fare</a>
+        <a href="app/contatti.php">Contatti</a>
+      </nav>
+      <div class="footer-contact">
+        <strong class="footer-title">Contatti</strong>
+        <p><a href="mailto:info@sonoerasmus.it">info@sonoerasmus.it</a><br/>+39 000 000 000</p>
+        <div class="social-row">
+          <a class="social" href="#" aria-label="Instagram">IG</a>
+          <a class="social" href="#" aria-label="Facebook">FB</a>
+          <a class="social" href="#" aria-label="X">X</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 SonoErasmus+ — Tutti i diritti riservati</div>
+  </footer>
+
+  <script>
+    // Menú móvil (igual que en otras páginas)
+    const openBtn = document.getElementById('openMenu');
+    const closeBtn = document.getElementById('closeMenu');
+    const mm = document.getElementById('mobileMenu');
+    openBtn?.addEventListener('click', ()=>{ mm.classList.add('open'); mm.setAttribute('aria-hidden','false'); });
+    closeBtn?.addEventListener('click', ()=>{ mm.classList.remove('open'); mm.setAttribute('aria-hidden','true'); });
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', ()=> header.classList.toggle('is-scrolled', window.scrollY>4));
+
+    // Envío simulado (no rompe nada de tu back)
+    const form = document.getElementById('raccontaForm');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      // Validación mínima
+      if(!form.checkValidity()){
+        form.reportValidity();
+        return;
+      }
+      alert('Grazie! La tua esperienza è stata inviata (demo).');
+      window.location.href = 'esperienze.html';
+    });
+  </script>
+</body>
+</html>

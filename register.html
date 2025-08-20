@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrazione - SonoErasmus+</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Registrati</h2>
+
+    <!-- IMPORTANTE: ahora apunta a /pages/register.php -->
+    <form id="registroForm" action="app/register.php" method="POST" novalidate>
+
+      <div class="form-group-inline">
+        <div class="form-group">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cognome">Cognome:</label>
+          <input type="text" id="cognome" name="cognome" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span id="emailError" class="error" style="display:none">Per favore, inserisci un'email valida.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <span id="usernameError" class="error" style="display:none">L'username non può essere vuoto.</span>
+      </div>
+
+      <div class="form-group-inline">
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+
+        <div class="form-group">
+          <label for="conferma_password">Conferma password:</label>
+          <input type="password" id="conferma_password" name="conferma_password" required>
+        </div>
+      </div>
+
+      <span id="passwordError" class="error" style="display:none">La password deve contenere almeno 8 caratteri.</span>
+      <span id="confermaPasswordError" class="error" style="display:none">Le password non corrispondono.</span>
+
+      <button type="submit">Registrati</button>
+    </form>
+
+    <div class="create-account-section">
+      <p>Hai già un account?</p>
+      <a href="login.html" class="create-account-button">Accedi</a>
+    </div>
+  </div>
+
+  <script src="assets/js/register.js"></script>
+</body>
+</html>

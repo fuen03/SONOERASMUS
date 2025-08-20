@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accedi - SonoErasmus+</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="form-container">
+    <header>
+      <h1>SonoErasmus+</h1>
+    </header>
+
+    <h2>Accedi</h2>
+
+    <!-- Ahora apunta a /pages/login.php -->
+    <form id="loginForm" action="app/login.php" method="POST" novalidate>
+      <label for="username_or_email">Username / e-mail:</label><br>
+      <input type="text" id="username_or_email" name="username_or_email" required><br>
+
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password" required><br>
+      <!-- Span que faltaba: evita error JS y muestra aviso -->
+      <span id="passwordError" class="error" style="display:none"></span>
+      <br>
+
+      <button type="submit">Accedi</button>
+    </form>
+
+    <div class="create-account-section">
+      <p>Non sei ancora registrato?</p>
+      <a href="register.html" class="create-account-button">Crea un account</a>
+    </div>
+  </div>
+
+  <div class="error-messages">
+    <span id="loginError" class="error" style="display:none"></span>
+  </div>
+
+  <script src="assets/js/login.js" defer></script>
+</body>
+</html>

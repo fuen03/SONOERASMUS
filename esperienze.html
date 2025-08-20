@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Esperienze Erasmus — SonoErasmus+</title>
+
+  <!-- Estilos globales del sitio -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Estilos propios de Esperienze -->
+  <link rel="stylesheet" href="assets/css/esperienze.css" />
+</head>
+<body>
+  <!-- ===== HEADER  ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <button class="menu-toggle" id="openMenu" aria-label="Apri menu">
+        <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
+      </button>
+
+      <a class="brand" href="index.html" aria-label="SonoErasmus+ Home">
+         <svg class="brand-logo" width="164" height="28" viewBox="0 0 164 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <text x="0" y="22" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="24" font-weight="900" fill="#c62828">Sono</text>
+          <text x="60" y="22" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="24" font-weight="900" fill="#8e0000">Erasmus+</text>
+        </svg>
+    </a>
+
+      
+
+      <nav class="desktop-nav" aria-label="Navigazione principale">
+        <a href="index.html">Pagina Iniziale</a>
+        <a href="universita.html">Università</a>
+        <a href="esperienze.html" aria-current="page">Esperienza Erasmus</a>
+        <a href="app/cosafare.php">Cosa Fare</a>
+        <a href="contatti.html">Contatti e link</a>
+      </nav>
+      <div class="auth-actions">
+        <a class="btn-login" href="login.html">Accedi</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MENÚ MÓVIL ===== -->
+  <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <button class="close-menu" id="closeMenu" aria-label="Chiudi menu">×</button>
+      <nav class="mobile-cards" aria-label="Menu mobile">
+        <a class="card-link" href="index.html"><span>Pagina Iniziale</span><span class="card-chevron"></span></a>
+        <a class="card-link" href="universita.html"><span>Università</span><span class="card-chevron"></span></a>
+        <a class="card-link is-selected" href="esperienze.html"><span>Esperienza Erasmus</span><span class="card-chevron"></span></a>
+        <a class="card-link" href="app/cosafare.php"><span>Cosa Fare</span><span class="card-chevron"></span></a>
+        <a class="card-link" href="contatti.html"><span>Contatti e link</span><span class="card-chevron"></span></a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- ===== BREADCRUMB ===== -->
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li aria-current="page">Esperienze Erasmus</li>
+    </ol>
+  </nav>
+
+  <!-- ===== TÍTULO + BUSCADOR + CTA ===== -->
+  <section class="section exp-hero">
+    <h1 class="exp-title">Scopri le esperienze dei nostri utenti</h1>
+
+    <form class="search-row" action="esperienze.html" method="get" role="search" aria-label="Cerca esperienze">
+      <input class="search-input" type="search" name="q"
+             placeholder="Cerca per città, università, utente…"
+             value="">
+      <button class="search-btn" type="submit">Cerca</button>
+    </form>
+
+    <p class="exp-lead">Scopri le università visitate dai nostri utenti</p>
+
+    <a class="btn-primary exp-cta" href="racconta.html">Racconta la tua esperienza</a>
+  </section>
+
+  <!-- ===== “STORIE” (círculos) ===== -->
+  <section class="section" aria-labelledby="storieTit">
+    <h2 id="storieTit" class="exp-subtitle">Gli utenti più attivi</h2>
+
+    <div class="stories-row" role="list">
+      <a class="story" role="listitem" href="#">
+        <span class="story-avatar"></span>
+        <span class="story-name">Maria</span>
+      </a>
+      <a class="story" role="listitem" href="#">
+        <span class="story-avatar"></span>
+        <span class="story-name">Davide</span>
+      </a>
+      <a class="story" role="listitem" href="#">
+        <span class="story-avatar"></span>
+        <span class="story-name">Alba</span>
+      </a>
+      <a class="story" role="listitem" href="#">
+        <span class="story-avatar"></span>
+        <span class="story-name">Clara</span>
+      </a>
+      <a class="story" role="listitem" href="#">
+        <span class="story-avatar"></span>
+        <span class="story-name">Luca</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== LISTA DE EXPERIENCIAS ===== -->
+  <section class="section" aria-labelledby="listaExpTit">
+    <h2 id="listaExpTit">Esperienze recenti</h2>
+
+    <div class="exp-grid">
+      <article class="exp-card">
+        <header class="exp-card-head">
+          <div class="exp-avatar"></div>
+          <div>
+            <div class="exp-user">Maria</div>
+            <div class="exp-university">Università di Padova</div>
+          </div>
+        </header>
+        <div class="exp-photo"></div>
+        <p class="exp-text">
+          Ho vissuto un semestre a Padova: città accogliente, campus super e tanti eventi per Erasmus!
+        </p>
+        <footer class="exp-meta">Fatta · 2024/2025</footer>
+      </article>
+
+      <article class="exp-card">
+        <header class="exp-card-head">
+          <div class="exp-avatar"></div>
+          <div>
+            <div class="exp-user">Davide</div>
+            <div class="exp-university">Università di Firenze</div>
+          </div>
+        </header>
+        <div class="exp-photo"></div>
+        <p class="exp-text">
+          Musei, arte e buon cibo: Firenze è perfetta per studiare e godersi la cultura italiana.
+        </p>
+        <footer class="exp-meta">In corso · 2025</footer>
+      </article>
+
+      <article class="exp-card">
+        <header class="exp-card-head">
+          <div class="exp-avatar"></div>
+          <div>
+            <div class="exp-user">Alba</div>
+            <div class="exp-university">Università di Roma</div>
+          </div>
+        </header>
+        <div class="exp-photo"></div>
+        <p class="exp-text">
+          Roma sorprende ogni giorno! Trasporti migliorabili, ma opportunità e storia ovunque.
+        </p>
+        <footer class="exp-meta">Futura · 2025/2026</footer>
+      </article>
+
+      <article class="exp-card">
+        <header class="exp-card-head">
+          <div class="exp-avatar"></div>
+          <div>
+            <div class="exp-user">Clara</div>
+            <div class="exp-university">Università di Udine</div>
+          </div>
+        </header>
+        <div class="exp-photo"></div>
+        <p class="exp-text">
+          Città tranquilla e verde, ottima per concentrarsi. Gite in montagna nel weekend!
+        </p>
+        <footer class="exp-meta">Curioso</footer>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">SE+</div>
+        <p class="footer-desc">SonoErasmus+ aiuta gli studenti a orientarsi tra università, città, eventi e vita quotidiana in Italia.</p>
+      </div>
+      <nav class="footer-links" aria-label="Mappa">
+        <strong class="footer-title">Mappa</strong>
+        <a href="index.html">Home</a>
+        <a href="app/universita.php">Università</a>
+        <a href="esperienze.html" aria-current="page">Esperienze</a>
+        <a href="app/cosafare.php">Cosa Fare</a>
+        <a href="app/contatti.php">Contatti</a>
+      </nav>
+      <div class="footer-contact">
+        <strong class="footer-title">Contatti</strong>
+        <p><a href="mailto:info@sonoerasmus.it">info@sonoerasmus.it</a><br/>+39 000 000 000</p>
+        <div class="social-row">
+          <a class="social" href="#" aria-label="Instagram">IG</a>
+          <a class="social" href="#" aria-label="Facebook">FB</a>
+          <a class="social" href="#" aria-label="X">X</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 SonoErasmus+ — Tutti i diritti riservati</div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    const openBtn = document.getElementById('openMenu');
+    const closeBtn = document.getElementById('closeMenu');
+    const mm = document.getElementById('mobileMenu');
+    openBtn?.addEventListener('click', ()=>{ mm.classList.add('open'); mm.setAttribute('aria-hidden','false'); });
+    closeBtn?.addEventListener('click', ()=>{ mm.classList.remove('open'); mm.setAttribute('aria-hidden','true'); });
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', ()=> header.classList.toggle('is-scrolled', window.scrollY>4));
+  </script>
+</body>
+</html>
