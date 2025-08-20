@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Università – SonoErasmus+</title>
 
-  <!-- Tu estilo general -->
   <link rel="stylesheet" href="assets/css/style.css" />
-  <!-- Estilos específicos de la sección università -->
   <link rel="stylesheet" href="assets/css/universita.css" />
 </head>
 <body>
@@ -82,7 +80,6 @@
   <section class="logo-rail" aria-label="Università consigliate">
     <div class="rail-mask">
       <div class="rail-track" id="railTrack">
-        <!-- Los items se llenan con JS desde universita-data.js -->
       </div>
     </div>
   </section>
@@ -90,11 +87,11 @@
   <!-- ===== RESULTADOS ===== -->
   <main class="section" id="risultati" aria-live="polite">
     <h2 class="section-title">Risultati</h2>
-    <div id="grid" class="uni-grid"><!-- Cards con JS --></div>
+    <div id="grid" class="uni-grid"></div>
     <p id="noResults" class="uni-noresults" hidden>Nessun risultato. Prova con un altro termine.</p>
   </main>
 
-  <!-- ===== FOOTER (como el tuyo) ===== -->
+  <!-- ===== FOOTER  ===== -->
   <footer class="site-footer" id="contatti">
     <div class="footer-inner">
       <div>
@@ -122,9 +119,8 @@
     <div class="footer-bottom">© 2025 SonoErasmus+ — Tutti i diritti riservati</div>
   </footer>
 
-  <!-- JS del menú que ya tienes -->
+  
   <script src="assets/js/main.js" defer></script>
-  <!-- Datos + lógica de università -->
   <script src="assets/js/universita-data.js"></script>
   <script src="assets/js/universita.js"></script>
 </body>
