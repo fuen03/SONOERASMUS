@@ -5,201 +5,210 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cosa Fare – SonoErasmus+</title>
 
-  <!-- Estilo base del sitio (ya existente) -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <!-- Estilo específico de Cosa Fare -->
-  <link rel="stylesheet" href="assets/css/cosafare.css">
+  <!-- Estilos comunes del sitio -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Estilos específicos de Cosa Fare -->
+  <link rel="stylesheet" href="assets/css/cosafare.css" />
 </head>
 <body>
 
-  <!-- ====== HEADER (igual al resto, sin cambios de funcionalidad) ====== -->
-  <header class="site-header" data-header>
+  <!-- ===== Header  ===== -->
+  <header class="site-header" id="siteHeader">
     <div class="header-inner">
-      <!-- Botón hamburguesa (móvil) -->
-      <button class="menu-toggle" aria-controls="mobileMenu" aria-expanded="false" data-menu-toggle>
-        <span class="visually-hidden">Apri menu</span>
+      <!-- Botón hamburguesa -->
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Apri menu">
         <span class="menu-toggle-bar"></span>
         <span class="menu-toggle-bar"></span>
         <span class="menu-toggle-bar"></span>
       </button>
 
-      <!-- Marca -->
-      <a class="brand" href="index.html" aria-label="SonoErasmus+ Home">
-        <img class="brand-logo" src="assets/img/logo-se.svg" alt="SonoErasmus+">
+      <!-- Marca / logo -->
+      <a class="brand" href="index.html" aria-label="Vai alla home">
+         <svg class="brand-logo" width="164" height="28" viewBox="0 0 164 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <text x="0" y="22" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="24" font-weight="900" fill="#c62828">Sono</text>
+          <text x="60" y="22" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="24" font-weight="900" fill="#8e0000">Erasmus+</text>
+        </svg>
       </a>
 
-      <!-- Navegación escritorio -->
+      <!-- Nav escritorio -->
       <nav class="desktop-nav" aria-label="Navigazione principale">
-        <a href="index.html#home">Pagina Iniziale</a>
-        <a href="universita.html">Università di Padova</a>
-        <a href="esperienze.html">Esperienza Erasmus</a>
-        <a aria-current="page" href="cosafare.html">Cosa Fare</a>
+        <a href="index.html">Pagina Iniziale</a>
+        <a href="universita.html">Università</a>
+        <a href="esperienze.html" aria-current="page">Esperienza Erasmus</a>
+        <a href="cosafare.html">Cosa Fare</a>
         <a href="contatti.html">Contatti e link</a>
       </nav>
 
       <!-- Accedi -->
       <div class="auth-actions">
-        <a class="btn-login" href="app/login.html">Accedi</a>
+        <a class="btn-login" href="login.html">Accedi</a>
       </div>
     </div>
   </header>
 
-  <!-- ====== MENÚ MÓVIL (mismas clases para que tu JS existente lo controle) ====== -->
-  <aside id="mobileMenu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <!-- ===== Menú móvil  ===== -->
+  <div class="mobile-menu" id="mobileMenu" hidden>
     <div class="mobile-menu-inner">
-      <button class="close-menu" type="button" data-menu-close aria-label="Chiudi menu">×</button>
+      <button class="close-menu" id="closeMenu" aria-label="Chiudi menu">×</button>
+
       <nav class="mobile-cards" aria-label="Navigazione mobile">
-        <a class="card-link" href="index.html#home">Pagina Iniziale <span class="card-chevron"></span></a>
-        <a class="card-link" href="universita.html">Università di Padova <span class="card-chevron"></span></a>
-        <a class="card-link" href="esperienze.html">Esperienza Erasmus <span class="card-chevron"></span></a>
-        <a class="card-link is-selected" href="cosafare.html">Cosa Fare <span class="card-chevron"></span></a>
-        <a class="card-link" href="contatti.html">Contatti e link <span class="card-chevron"></span></a>
+        <a class="card-link" href="index.html#home">
+          <span>Pagina Iniziale</span><span class="card-chevron"></span>
+        </a>
+        <a class="card-link" href="universita.html">
+          <span>Università di Padova</span><span class="card-chevron"></span>
+        </a>
+        <a class="card-link" href="esperienze.html">
+          <span>Esperienza Erasmus</span><span class="card-chevron"></span>
+        </a>
+        <a class="card-link is-selected" href="cosafare.html" aria-current="page">
+          <span>Cosa Fare</span><span class="card-chevron"></span>
+        </a>
+        <a class="card-link" href="contatti.html">
+          <span>Contatti e link</span><span class="card-chevron"></span>
+        </a>
       </nav>
     </div>
-  </aside>
+  </div>
 
-  <!-- ====== CONTENIDO ====== -->
-  <main id="main" class="page-wrap">
-
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb" aria-label="breadcrumb">
+  <!-- ===== Hero + breadcrumb ===== -->
+  <section class="hero">
+    <nav class="breadcrumb" aria-label="Percorso">
       <ol>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#home">Home</a></li>
         <li aria-current="page">Cosa Fare</li>
       </ol>
     </nav>
 
-    <!-- Título + buscador -->
-    <section class="cf-hero">
-      <h1 class="cf-title">Cosa fare durante l’Erasmus</h1>
+    <h1 class="hero-title">Cosa fare durante l’Erasmus</h1>
+    <p class="hero-subtitle">
+      Idee, eventi e attività per conoscere la città, i dintorni e la cultura.
+      Cerca per città o filtra per categoria.
+    </p>
 
-      <form class="cf-search" id="cfSearchForm" role="search" aria-label="Cerca attività">
-        <label class="visually-hidden" for="cfQuery">Cerca nella tua città</label>
-        <input id="cfQuery" name="q" type="search" placeholder="Es. Padova, musei, festa..." autocomplete="off">
-        <button class="btn" type="submit">Cerca</button>
-      </form>
+    <!-- Barra de búsqueda -->
+    <form class="cf-search" role="search" aria-label="Cerca attività">
+      <input class="cf-input" type="search" name="q" placeholder="Es. Padova, musei, gite…" aria-label="Cerca" />
+      <select class="cf-select" name="categoria" aria-label="Categoria">
+        <option value="">Tutte le categorie</option>
+        <option value="musei">Musei</option>
+        <option value="gite">Gite e natura</option>
+        <option value="cibo">Cibo locale</option>
+        <option value="notte">Vita notturna</option>
+        <option value="sport">Sport</option>
+      </select>
+      <button class="cf-btn" type="submit">Cerca</button>
+    </form>
+  </section>
 
-      <p class="cf-sub">Scopri attività, eventi e suggerimenti condivisi dagli studenti.</p>
-
-      <div class="cf-quick">
-        <button type="button" class="chip" data-chip="musei">Visita musei locali</button>
-        <button type="button" class="chip" data-chip="tour">Tour guidati</button>
-        <button type="button" class="chip" data-chip="gite">Gite fuori porta</button>
-        <button type="button" class="chip" data-chip="night">Vita notturna</button>
+  <!-- ===== Banda rossa: consigli rapidi (slider simple) ===== -->
+  <section class="logo-rail" aria-labelledby="consigliTit">
+    <div class="rail-mask">
+      <div class="rail-track">
+        <figure class="rail-item">
+          <img class="logo-img" src="assets/img/museo.jpg" alt="Musei locali">
+        <figcaption>Musei locali</figcaption>
+        </figure>
+        <figure class="rail-item">
+          
+          <img class="logo-img" src="assets/img/gite.jpg" alt="Gite di un giorno">
+          <figcaption>Gite di un giorno</figcaption>
+        </figure>
+        <figure class="rail-item">
+          
+          <img class="logo-img" src="assets/img/streetfood.jpg" alt="Streetfood">
+          <figcaption>Street food</figcaption>
+        </figure>
+        <figure class="rail-item">
+          <img class="logo-img" src="assets/img/esn.jpg" alt="Eventi ESN">
+          <figcaption>Eventi ESN</figcaption>
+        </figure>
+        <figure class="rail-item">
+          <img class="logo-img" src="assets/img/sport.jpg" alt="Sport e Campus">
+          <figcaption>Sport & Campus</figcaption>
+        </figure>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Banda roja con carrusel de propuestas rápidas -->
-    <section class="cf-rail">
-      <div class="rail-mask">
-        <div class="rail-track" id="railTrack">
-          <!-- Items de ejemplo (puedes cambiarlos por logos/íconos) -->
-          <figure class="rail-item">
-            <div class="rail-icon" aria-hidden="true">🎟</div>
-            <figcaption>Mostre & Musei</figcaption>
-          </figure>
-          <figure class="rail-item">
-            <div class="rail-icon">🗺</div>
-            <figcaption>Tour del centro</figcaption>
-          </figure>
-          <figure class="rail-item">
-            <div class="rail-icon">⛰</div>
-            <figcaption>Gita a Verona</figcaption>
-          </figure>
-          <figure class="rail-item">
-            <div class="rail-icon">🎶</div>
-            <figcaption>Concerti</figcaption>
-          </figure>
-          <figure class="rail-item">
-            <div class="rail-icon">🍝</div>
-            <figcaption>Food & Aperitivi</figcaption>
-          </figure>
+  <!-- ===== Griglia attività (risultati) ===== -->
+  <main class="section" id="risultati" aria-labelledby="risTit">
+    <h2 id="risTit">Risultati</h2>
 
-          <!-- duplicados para scroll infinito visual -->
-          <figure class="rail-item">
-            <div class="rail-icon">🎟</div>
-            <figcaption>Mostre & Musei</figcaption>
-          </figure>
-          <figure class="rail-item">
-            <div class="rail-icon">🗺</div>
-            <figcaption>Tour del centro</figcaption>
-          </figure>
-          <figure class="rail-item">
-            <div class="rail-icon">⛰</div>
-            <figcaption>Gita a Verona</figcaption>
-          </figure>
-          <figure class="rail-item">
-            <div class="rail-icon">🎶</div>
-            <figcaption>Concerti</figcaption>
-          </figure>
-          <figure class="rail-item">
-            <div class="rail-icon">🍝</div>
-            <figcaption>Food & Aperitivi</figcaption>
-          </figure>
+    <div class="cf-grid">
+      <!-- Card esempio 1 -->
+      <article class="cf-card">
+        <div class="cf-card-media" aria-hidden="true"></div>
+        <div class="cf-card-body">
+          <h3 class="cf-card-title">Visita ai musei civici</h3>
+          <p class="cf-card-text">
+            Scopri la collezione storica cittadina con ingresso scontato per studenti.
+          </p>
+          <div class="cf-card-meta">Padova · Tutto l’anno</div>
+          <a class="cf-card-cta" href="#" aria-label="Dettagli su Visita ai musei civici">Dettagli</a>
         </div>
-      </div>
-    </section>
+      </article>
 
-    <!-- Resultados + calendario -->
-    <section class="cf-results">
-      <div class="cf-grid">
-        <!-- Lista de resultados -->
-        <div class="cf-list">
-          <h2 class="cf-h2">Risultati</h2>
-          <ul id="cfResults" class="card-list" aria-live="polite">
-            <!-- Render inicial de ejemplos -->
-            <li class="card">
-              <div class="card-icon">🖼</div>
-              <div class="card-body">
-                <h3 class="card-title">Mostra d’arte moderna</h3>
-                <p class="card-meta">Padova • Sabato 21:00</p>
-                <p class="card-text">Ingresso gratuito per studenti ERASMUS.</p>
-              </div>
-            </li>
-            <li class="card">
-              <div class="card-icon">🚲</div>
-              <div class="card-body">
-                <h3 class="card-title">Bike tour lungo il Bacchiglione</h3>
-                <p class="card-meta">Domenica • mattina</p>
-                <p class="card-text">Noleggio bicicletta incluso.</p>
-              </div>
-            </li>
-            <li class="card">
-              <div class="card-icon">🍷</div>
-              <div class="card-body">
-                <h3 class="card-title">Aperitivo universitario</h3>
-                <p class="card-meta">Venerdì • 19:30</p>
-                <p class="card-text">Spritz e cicchetti in centro storico.</p>
-              </div>
-            </li>
-          </ul>
+      <!-- Card esempio 2 -->
+      <article class="cf-card">
+        <div class="cf-card-media" aria-hidden="true"></div>
+        <div class="cf-card-body">
+          <h3 class="cf-card-title">Gita sui Colli Euganei</h3>
+          <p class="cf-card-text">
+            Una giornata tra sentieri, borghi e degustazioni. Perfetta in primavera.
+          </p>
+          <div class="cf-card-meta">Veneto · Stagionale</div>
+          <a class="cf-card-cta" href="#" aria-label="Dettagli su Gita sui Colli Euganei">Dettagli</a>
         </div>
+      </article>
 
-        <!-- Mini calendario -->
-        <aside class="cf-cal" aria-label="Calendario eventi">
-          <div class="cal-header">
-            <button class="cal-nav" type="button" data-cal-prev aria-label="Mese precedente">‹</button>
-            <div class="cal-month" id="calMonth">Agosto 2025</div>
-            <button class="cal-nav" type="button" data-cal-next aria-label="Mese successivo">›</button>
-          </div>
-          <table class="cal-table" id="calTable" aria-describedby="calMonth">
-            <!-- generado por JS -->
-          </table>
-          <p class="cal-help">Clicca su un giorno per filtrare gli eventi.</p>
-        </aside>
-      </div>
-    </section>
-
+      <!-- Card esempio 3 -->
+      <article class="cf-card">
+        <div class="cf-card-media" aria-hidden="true"></div>
+        <div class="cf-card-body">
+          <h3 class="cf-card-title">Aperitivo tipico</h3>
+          <p class="cf-card-text">
+            Spritz e cicchetti: imperdibile rito serale veneto per fare amicizia.
+          </p>
+          <div class="cf-card-meta">Centro storico · Ogni settimana</div>
+          <a class="cf-card-cta" href="#" aria-label="Dettagli su Aperitivo tipico">Dettagli</a>
+        </div>
+      </article>
+    </div>
   </main>
 
-  <!-- ====== FOOTER (mismo estilo global) ====== -->
+  <!-- ===== Calendario (placeholder) ===== -->
+  <section class="section" aria-labelledby="calTit">
+    <h2 id="calTit">Calendario eventi</h2>
+    <div class="cf-calendar">
+      <div class="cal-header">
+        <button class="cal-btn" type="button" aria-label="Mese precedente">‹</button>
+        <div class="cal-month">Agosto 2025</div>
+        <button class="cal-btn" type="button" aria-label="Mese successivo">›</button>
+      </div>
+      <div class="cal-grid" aria-hidden="true">
+        <span>Lu</span><span>Ma</span><span>Me</span><span>Gi</span><span>Ve</span><span>Sa</span><span>Do</span>
+        <!-- giorni fittizi -->
+        <b></b><b></b><b></b><b></b><b>1</b><b>2</b><b>3</b>
+        <b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b><b>10</b>
+        <b>11</b><b>12</b><b>13</b><b>14</b><b>15</b><b>16</b><b>17</b>
+        <b>18</b><b>19</b><b>20</b><b>21</b><b>22</b><b>23</b><b>24</b>
+        <b>25</b><b>26</b><b>27</b><b>28</b><b>29</b><b>30</b><b>31</b>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer igual al resto ===== -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div>
         <div class="footer-logo">SE+</div>
-        <p class="footer-desc">SonoErasmus+ aiuta gli studenti a orientarsi tra università, città, eventi e vita quotidiana in Italia.</p>
+        <p class="footer-desc">
+          SonoErasmus+ aiuta gli studenti a orientarsi tra università, città, eventi e vita quotidiana in Italia.
+        </p>
       </div>
-      <nav class="footer-links" aria-label="Mappa">
+
+      <nav class="footer-links" aria-label="Mappa del sito">
         <strong class="footer-title">Mappa</strong>
         <a href="index.html#home">Home</a>
         <a href="universita.html">Università</a>
@@ -207,21 +216,23 @@
         <a href="cosafare.html" aria-current="page">Cosa Fare</a>
         <a href="contatti.html">Contatti</a>
       </nav>
+
       <div class="footer-contact">
         <strong class="footer-title">Contatti</strong>
-        <p><a href="mailto:info@sonoerasmus.it">info@sonoerasmus.it</a><br>
-           +39 000 000 000</p>
+        <p><a href="mailto:info@sonoerasmus.it">info@sonoerasmus.it</a></p>
+        <p><a href="tel:+39000000000">+39 000 000 000</a></p>
+        <p>Via Università 1, 35100 Padova, Italia</p>
         <div class="social-row">
-          <a class="social" href="#" aria-label="Instagram">⌾</a>
-          <a class="social" href="#" aria-label="Facebook">f</a>
-          <a class="social" href="#" aria-label="X">x</a>
+          <a class="social" href="#" aria-label="Instagram">IG</a>
+          <a class="social" href="#" aria-label="Facebook">FB</a>
+          <a class="social" href="#" aria-label="TikTok">TT</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">© 2025 SonoErasmus+ — Tutti i diritti riservati</div>
   </footer>
 
-  <!-- JS página (no toca tu menú) -->
-  <script src="assets/js/cosafare.js"></script>
+  <!-- JS común (mismo de todas las páginas) -->
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
