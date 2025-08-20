@@ -61,3 +61,32 @@ VALUES (1, 1, 'In corso');
 -- Evento
 INSERT INTO Evento (titolo, descrizione, data_evento, luogo, universita_id)
 VALUES ('Festa di benvenuto', 'Grande party per nuovi studenti Erasmus', '2025-10-15', 'Campus Padova', 1);
+
+-- Tabla principal de universidades
+CREATE TABLE IF NOT EXISTS universities (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(120) NOT NULL,
+  slug VARCHAR(140) NOT NULL UNIQUE,
+  city VARCHAR(100) NOT NULL,
+  website VARCHAR(200),
+  email VARCHAR(200),
+  phone VARCHAR(40),
+  cover_image VARCHAR(200),      
+  short_desc VARCHAR(300),      
+  long_desc MEDIUMTEXT,         
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO universities (name, slug, city, website, email, phone, cover_image, short_desc, long_desc) VALUES
+('Università degli Studi di Padova','unipd','Padova','https://www.unipd.it','urp@unipd.it','+39 049 827 5111','/assets/img/calendar.jpg',
+ 'Ateneo storico del 1222, cuore della vita Erasmus in Veneto.',
+ '<p>L’Università di Padova è uno dei più antichi atenei del mondo. Ampia offerta formativa, ricerca di eccellenza e una città a misura di studente.</p>'),
+('Università di Firenze','unifi','Firenze','https://www.unifi.it','info@unifi.it','+39 055 27571','/assets/img/calendar.jpg',
+ 'Vivere l’Erasmus tra arte, cultura e innovazione.',
+ '<p>L’Università di Firenze offre numerosi corsi internazionali e un campus diffuso nel centro storico.</p>'),
+('Sapienza – Università di Roma','sapienza','Roma','https://www.uniroma1.it','segreteria@sapienza.it','+39 06 49911','/assets/calendar.jpg',
+ 'Il più grande ateneo europeo nel cuore della capitale.',
+ '<p>Sapienza è un polo di eccellenza con migliaia di studenti internazionali e servizi dedicati all’accoglienza.</p>'),
+('Università di Udine','uniud','Udine','https://www.uniud.it','info@uniud.it','+39 0432 556111','/assets/img/calendar.jpg',
+ 'Qualità della vita e didattica su misura nel Friuli.',
+ '<p>UniUD è giovane e dinamica, perfetta per chi cerca community e contatto con il territorio.</p>');
