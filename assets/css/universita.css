@@ -1,0 +1,52 @@
+/* ====== UNIVERSITA (complemento del style.css) ====== */
+
+/* breadcrumb */
+.breadcrumb{max-width:var(--container);margin:1rem auto 0;padding:0 1rem}
+.breadcrumb ol{list-style:none;display:flex;gap:.5rem;flex-wrap:wrap;margin:0;padding:0}
+.breadcrumb a{color:var(--red-dark);text-decoration:none;font-weight:700}
+.breadcrumb li{color:#7b1d1d}
+.breadcrumb li+li::before{content:"›";opacity:.6;margin:0 .25rem}
+
+/* hero busqueda */
+.uni-hero{padding:1.2rem 1rem 1.6rem;max-width:var(--container);margin:0 auto;text-align:center}
+.uni-title{font-weight:900;color:var(--red-main);margin:.2rem 0 .6rem}
+.uni-search{display:flex;gap:.5rem;justify-content:center}
+.uni-search input{min-width:260px;max-width:520px;width:100%;padding:.7rem .9rem;border:2px solid var(--red-200);border-radius:999px;background:#fff}
+.uni-btn{background:var(--red-main);color:#fff;border:none;border-radius:999px;padding:.7rem 1rem;font-weight:800;cursor:pointer}
+.uni-btn:hover{background:var(--red-dark)}
+.uni-hint{margin:.65rem 0 0;color:#5b0000}
+
+/* carrusel rojo: heredamos .logo-rail del style.css */
+.rail-track img{width:100%;height:110px;object-fit:cover;border-radius:10px}
+.rail-link{display:block;color:inherit;text-decoration:none}
+
+/* resultados */
+.section-title{margin:0 0 .75rem}
+.uni-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+@media (max-width:1024px){.uni-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:720px){.uni-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:460px){.uni-grid{grid-template-columns:1fr}}
+
+.uni-card{background:#fff;border:2px solid var(--red-200);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+.uni-card-link{display:grid;color:inherit;text-decoration:none}
+.uni-card-media{aspect-ratio:4/3;background:#f7f7f7}
+.uni-card-media img{width:100%;height:100%;object-fit:cover;display:block}
+.uni-card-ph{width:100%;height:100%;background:linear-gradient(135deg,#eee,#f7f7f7)}
+.uni-card-body{padding:.8rem .9rem}
+.uni-card-title{margin:.1rem 0;font-size:1.05rem;font-weight:900;color:#2b2b2b}
+.uni-card-meta{margin:0;color:#6b6b6b;font-weight:700}
+.uni-noresults{color:#6b0000}
+
+/* detalle universidad */
+.uni-header{max-width:var(--container);margin:0 auto;padding:1rem;display:grid;grid-template-columns:280px 1fr;gap:1rem;align-items:center}
+@media (max-width:720px){.uni-header{grid-template-columns:1fr}}
+.uni-cover{margin:0}
+.uni-cover img{width:100%;height:200px;border-radius:16px;object-fit:cover;background:#f5f5f5;border:2px solid var(--red-200)}
+.uni-header-text{display:grid;gap:.4rem}
+.uni-meta{color:#6b6b6b;font-weight:700}
+
+.uni-article{max-width:var(--container);margin:0 auto}
+.uni-article p{max-width:70ch}
+.uni-links{padding-left:1rem}
+.uni-links a{color:var(--red-dark);font-weight:800;text-decoration:none}
+.uni-links a:hover{text-decoration:underline}

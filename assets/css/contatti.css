@@ -1,0 +1,59 @@
+:root{
+  --red-main:#c62828; --red-dark:#8e0000;
+  --red-50:#fff5f5; --red-100:#fde8e8; --red-200:#fbd1d1;
+  --shadow:0 8px 28px rgba(0,0,0,.12);
+  --container:1100px;
+}
+
+/* Sección héroe (alineado con tu look) */
+.contact-hero{text-align:center;max-width:var(--container);margin:0 auto;padding:1.2rem 1rem 1.5rem}
+.hero-title{margin:.2rem 0 .4rem;color:#7a0000}
+.hero-lead{max-width:780px;margin:0 auto .9rem;color:#333}
+
+/* Buscador (mismo patrón que el resto) */
+.search-row{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
+.search-input{
+  width:min(720px,90vw);height:44px;border-radius:999px;border:2px solid var(--red-200);
+  padding:0 1rem;font-size:1rem;background:#fff;
+}
+.search-btn{
+  height:44px;border-radius:999px;border:none;background:var(--red-main);color:#fff;font-weight:800;padding:0 1rem;cursor:pointer
+}
+.search-btn:hover,.search-btn:focus-visible{background:var(--red-dark);outline:none}
+
+/* Grupos y tarjetas */
+.group-title{color:#5b0000;margin:.25rem 0 .6rem}
+.cards-grid{
+  max-width:var(--container);margin:0 auto;padding:0;
+  display:grid;gap:1rem;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+@media (max-width:900px){.cards-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.cards-grid{grid-template-columns:1fr}}
+
+.card{background:#fff;border:2px solid var(--red-200);border-radius:14px;box-shadow:var(--shadow);padding:1rem}
+.card-title{margin:.1rem 0 .25rem}
+.card-meta{margin:0 0 .4rem;color:#6b0000}
+.card-line{margin:.15rem 0}
+.card a.card-link{display:inline-block;font-weight:800;color:#721414;text-decoration:none;border-bottom:2px solid rgba(198,40,40,.35);padding-bottom:2px}
+.card a.card-link:hover{color:var(--red-dark);border-color:var(--red-dark)}
+
+.social-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.35rem}
+.social{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:999px;background:#fff;color:#8e0000;border:1px solid #e8bcbc;text-decoration:none}
+.social:hover,.social:focus-visible{outline:2px solid var(--red-main)}
+
+/* Formularios */
+.contact-form{background:#fff;border:2px solid var(--red-200);border-radius:16px;box-shadow:var(--shadow);padding:1rem;max-width:var(--container);margin:0 auto}
+.form-row{display:grid;gap:1rem;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:720px){.form-row{grid-template-columns:1fr}}
+.form-field{display:grid;gap:.35rem}
+.form-field label{font-weight:900;color:#3b0000}
+.form-field input,.form-field select,.form-field textarea{
+  border:2px solid #f0c9c9;border-radius:12px;padding:.7rem .8rem;font:inherit;background:#fff
+}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{
+  outline:2px solid var(--red-main); border-color:var(--red-main)
+}
+.btn-primary{display:inline-block;background:var(--red-main);color:#fff;text-decoration:none;border-radius:999px;padding:.7rem 1.15rem;font-weight:800;border:none;cursor:pointer}
+.btn-primary:hover,.btn-primary:focus-visible{background:var(--red-dark);outline:none}
+.form-note{color:#6b0000;font-size:.9rem;margin:.5rem 0 0}
