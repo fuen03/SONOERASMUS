@@ -455,3 +455,11 @@ input.is-invalid{ border-color:var(--red-main); background:var(--red-50) }
 @media (max-width: 768px) {
   .hero-nav { width: 36px; height: 36px; font-size: 22px; line-height: 36px; }
 }
+
+body { width: 100%; overflow-x: hidden; }
+
+
+*, *::before, *::after { box-sizing: border-box; }
+
+
+img, svg, video, canvas { max-width: 100%; height: auto; display: block; }
