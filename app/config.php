@@ -1,9 +1,9 @@
 <?php
 $DB_HOST = 'localhost';
 $DB_PORT = '5432';
-$DB_NAME = 'postgres';
+$DB_NAME = 'sonoerasmus';
 $DB_USER = 'postgres';
-$DB_PASS = 'alba2003';
+$DB_PASS = 'diana';
 
 try {
     // Conexión usando PDO para PostgreSQL
