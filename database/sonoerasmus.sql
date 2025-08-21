@@ -114,3 +114,22 @@ INSERT INTO cosa_fare (title,city,category,period,image,short_desc,long_desc) VA
 ('Aperitivo tipico','Centro storico','cibo','Ogni settimana','/assets/img/streetfood.jpg',
  'Spritz e cicchetti: rito serale veneto.',
  '<p>Ideale per socializzare: prova i bacari e i cicchetti tradizionali.</p>');
+
+
+ -- Primero, agregar columna 'role' a la tabla Utente si no existe
+ALTER TABLE Utente ADD COLUMN IF NOT EXISTS role VARCHAR(20) DEFAULT 'user';
+
+-- Crear el usuario administrador
+-- Nota: La contraseña 'admin' será hasheada con password_hash() de PHP
+INSERT INTO Utente (nome, cognome, email, username, password, role) 
+VALUES (
+    'Admin', 
+    'Sistema', 
+    'admin@sonoerasmus.it', 
+    'admin', 
+    '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', -- password: 'admin'
+    'admin'
+) ON CONFLICT (username) DO UPDATE SET
+    password = EXCLUDED.password,
+    role = EXCLUDED.role;
+

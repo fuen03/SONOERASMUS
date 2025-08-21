@@ -1,52 +1,436 @@
-/* ====== UNIVERSITA (complemento del style.css) ====== */
+/* ===== UNIVERSITA.CSS - Estilos específicos para la página de universidades ===== */
 
-/* breadcrumb */
-.breadcrumb{max-width:var(--container);margin:1rem auto 0;padding:0 1rem}
-.breadcrumb ol{list-style:none;display:flex;gap:.5rem;flex-wrap:wrap;margin:0;padding:0}
-.breadcrumb a{color:var(--red-dark);text-decoration:none;font-weight:700}
-.breadcrumb li{color:#7b1d1d}
-.breadcrumb li+li::before{content:"›";opacity:.6;margin:0 .25rem}
+/* Variables específicas para universidades */
+:root {
+  --uni-gradient-primary: linear-gradient(135deg, #c62828 0%, #8e0000 100%);
+  --uni-gradient-light: linear-gradient(135deg, #fff5f5 0%, #fdecea 100%);
+  --uni-card-shadow: 0 4px 20px rgba(198, 40, 40, 0.08);
+  --uni-card-shadow-hover: 0 8px 32px rgba(198, 40, 40, 0.15);
+  --uni-border-radius: 16px;
+  --uni-spacing: 1.5rem;
+}
 
-/* hero busqueda */
-.uni-hero{padding:1.2rem 1rem 1.6rem;max-width:var(--container);margin:0 auto;text-align:center}
-.uni-title{font-weight:900;color:var(--red-main);margin:.2rem 0 .6rem}
-.uni-search{display:flex;gap:.5rem;justify-content:center}
-.uni-search input{min-width:260px;max-width:520px;width:100%;padding:.7rem .9rem;border:2px solid var(--red-200);border-radius:999px;background:#fff}
-.uni-btn{background:var(--red-main);color:#fff;border:none;border-radius:999px;padding:.7rem 1rem;font-weight:800;cursor:pointer}
-.uni-btn:hover{background:var(--red-dark)}
-.uni-hint{margin:.65rem 0 0;color:#5b0000}
+/* ===== BACK LINK ===== */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--red-dark);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
 
-/* carrusel rojo: heredamos .logo-rail del style.css */
-.rail-track img{width:100%;height:110px;object-fit:cover;border-radius:10px}
-.rail-link{display:block;color:inherit;text-decoration:none}
+.back-link:hover,
+.back-link:focus-visible {
+  color: var(--red-main);
+  transform: translateX(-4px);
+  outline: none;
+}
 
-/* resultados */
-.section-title{margin:0 0 .75rem}
-.uni-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
-@media (max-width:1024px){.uni-grid{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:720px){.uni-grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:460px){.uni-grid{grid-template-columns:1fr}}
+.back-link::before {
+  content: "←";
+  font-size: 1.2em;
+  transition: transform 0.3s ease;
+}
 
-.uni-card{background:#fff;border:2px solid var(--red-200);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
-.uni-card-link{display:grid;color:inherit;text-decoration:none}
-.uni-card-media{aspect-ratio:4/3;background:#f7f7f7}
-.uni-card-media img{width:100%;height:100%;object-fit:cover;display:block}
-.uni-card-ph{width:100%;height:100%;background:linear-gradient(135deg,#eee,#f7f7f7)}
-.uni-card-body{padding:.8rem .9rem}
-.uni-card-title{margin:.1rem 0;font-size:1.05rem;font-weight:900;color:#2b2b2b}
-.uni-card-meta{margin:0;color:#6b6b6b;font-weight:700}
-.uni-noresults{color:#6b0000}
+.back-link:hover::before {
+  transform: translateX(-2px);
+}
 
-/* detalle universidad */
-.uni-header{max-width:var(--container);margin:0 auto;padding:1rem;display:grid;grid-template-columns:280px 1fr;gap:1rem;align-items:center}
-@media (max-width:720px){.uni-header{grid-template-columns:1fr}}
-.uni-cover{margin:0}
-.uni-cover img{width:100%;height:200px;border-radius:16px;object-fit:cover;background:#f5f5f5;border:2px solid var(--red-200)}
-.uni-header-text{display:grid;gap:.4rem}
-.uni-meta{color:#6b6b6b;font-weight:700}
+/* ===== TÍTULO PRINCIPAL ===== */
+.section h1 {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  color: var(--red-main);
+  margin: 0 0 1.5rem 0;
+  text-align: center;
+  position: relative;
+}
 
-.uni-article{max-width:var(--container);margin:0 auto}
-.uni-article p{max-width:70ch}
-.uni-links{padding-left:1rem}
-.uni-links a{color:var(--red-dark);font-weight:800;text-decoration:none}
-.uni-links a:hover{text-decoration:underline}
+.section h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--uni-gradient-primary);
+  border-radius: 2px;
+}
+
+/* ===== BUSCADOR MEJORADO ===== */
+.cf-search {
+  max-width: 600px;
+  margin: 0 auto 2.5rem auto;
+  position: relative;
+  background: white;
+  border-radius: 50px;
+  box-shadow: var(--uni-card-shadow);
+  overflow: hidden;
+  border: 2px solid var(--red-200);
+  transition: all 0.3s ease;
+}
+
+.cf-search:focus-within {
+  border-color: var(--red-main);
+  box-shadow: var(--uni-card-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.cf-search {
+  display: flex;
+  align-items: center;
+}
+
+.cf-input {
+  flex: 1;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1.05rem;
+  background: transparent;
+  color: #333;
+  outline: none;
+}
+
+.cf-input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.cf-btn {
+  background: var(--uni-gradient-primary);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.cf-btn:hover {
+  background: linear-gradient(135deg, #8e0000 0%, #c62828 100%);
+  transform: translateX(-2px);
+}
+
+.cf-btn:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* ===== GRID DE UNIVERSIDADES ===== */
+.cf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--uni-spacing);
+  margin-top: 2rem;
+}
+
+/* ===== TARJETAS DE UNIVERSIDAD ===== */
+.cf-card {
+  background: white;
+  border-radius: var(--uni-border-radius);
+  box-shadow: var(--uni-card-shadow);
+  border: 2px solid var(--red-100);
+  overflow: hidden;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.cf-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--uni-card-shadow-hover);
+  border-color: var(--red-200);
+}
+
+.cf-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--uni-gradient-primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.cf-card:hover::before {
+  transform: scaleX(1);
+}
+
+.cf-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+/* ===== MEDIA DE LA TARJETA ===== */
+.cf-card-media {
+  height: 120px;
+  background: var(--uni-gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 900;
+  font-size: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cf-card-media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(255,255,255,0.08) 0%, transparent 50%);
+}
+
+.cf-card:hover .cf-card-media {
+  background: linear-gradient(135deg, #8e0000 0%, #c62828 100%);
+}
+
+/* ===== CUERPO DE LA TARJETA ===== */
+.cf-card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cf-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--red-dark);
+  margin: 0;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.cf-card:hover .cf-card-title {
+  color: var(--red-main);
+}
+
+.cf-card-meta {
+  font-size: 0.95rem;
+  color: #666;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.cf-card-meta::before {
+  content: "📍";
+  font-size: 0.9em;
+}
+
+.cf-card-text {
+  font-size: 0.9rem;
+  color: #777;
+  line-height: 1.4;
+  margin: 0.5rem 0 0 0;
+  font-style: italic;
+}
+
+/* ===== CALL TO ACTION ===== */
+.cf-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--red-main);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.cf-card-cta::after {
+  content: "→";
+  font-size: 1.1em;
+  transition: transform 0.3s ease;
+}
+
+.cf-card:hover .cf-card-cta {
+  color: var(--red-dark);
+}
+
+.cf-card:hover .cf-card-cta::after {
+  transform: translateX(4px);
+}
+
+/* ===== ESTADO VACÍO ===== */
+.section p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  padding: 3rem 1rem;
+  background: var(--uni-gradient-light);
+  border-radius: var(--uni-border-radius);
+  border: 2px dashed var(--red-200);
+  font-style: italic;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cf-card {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.cf-card:nth-child(1) { animation-delay: 0.1s; }
+.cf-card:nth-child(2) { animation-delay: 0.2s; }
+.cf-card:nth-child(3) { animation-delay: 0.3s; }
+.cf-card:nth-child(4) { animation-delay: 0.4s; }
+.cf-card:nth-child(5) { animation-delay: 0.5s; }
+.cf-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+  .cf-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 2rem 1rem;
+  }
+  
+  .cf-search {
+    margin-bottom: 2rem;
+  }
+  
+  .cf-input {
+    padding: 0.9rem 1.25rem;
+    font-size: 1rem;
+  }
+  
+  .cf-btn {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .cf-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .cf-card-media {
+    height: 100px;
+    font-size: 1.5rem;
+  }
+  
+  .cf-card-body {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section h1::after {
+    width: 60px;
+  }
+  
+  .cf-search {
+    flex-direction: column;
+    border-radius: var(--uni-border-radius);
+  }
+  
+  .cf-input {
+    border-bottom: 1px solid var(--red-200);
+  }
+  
+  .cf-btn {
+    width: 100%;
+    border-radius: 0 0 calc(var(--uni-border-radius) - 2px) calc(var(--uni-border-radius) - 2px);
+  }
+  
+  .back-link {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== ACCESIBILIDAD ===== */
+@media (prefers-reduced-motion: reduce) {
+  .cf-card,
+  .cf-search,
+  .back-link,
+  .cf-card-cta::after,
+  .cf-card::before {
+    transition: none;
+    animation: none;
+  }
+  
+  .cf-card:hover {
+    transform: none;
+  }
+}
+
+/* ===== MODO OSCURO (si se implementa) ===== */
+@media (prefers-color-scheme: dark) {
+  .cf-card {
+    background: #1a1a1a;
+    border-color: #333;
+    color: #e0e0e0;
+  }
+  
+  .cf-card-title {
+    color: #ff6b6b;
+  }
+  
+  .cf-card-meta {
+    color: #aaa;
+  }
+  
+  .cf-card-text {
+    color: #999;
+  }
+  
+  .cf-input {
+    background: #2a2a2a;
+    color: #e0e0e0;
+  }
+  
+  .cf-input::placeholder {
+    color: #666;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .cf-search,
+  .back-link {
+    display: none;
+  }
+  
+  .cf-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .cf-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}

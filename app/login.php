@@ -4,14 +4,19 @@ require_once 'config.php';
 
 // Si el usuario ya está logueado, redirigir
 if (isLoggedIn()) {
-    header("Location: index.php");
+    if (isAdmin()) {
+        header("Location: dashboard.php");
+    }  
+    if (!isAdmin()) {
+        header("Location: ../index.php");
+    }
     exit();
 }
 
 try {
     // Verificar que se enviaron los datos del formulario
     if (!isset($_POST['username_or_email']) || !isset($_POST['password'])) {
-        header("Location: ../login.html?error=datos_incompletos");
+        header("Location: ../login.php?error=datos_incompletos");
         exit();
     }
 
@@ -21,12 +26,12 @@ try {
 
     // Validación: verificar que los campos no estén vacíos
     if (empty($username_or_email) || empty($password_inserita)) {
-        header("Location: ../login.html?error=campi_obbligatori");
+        header("Location: ../login.php?error=campi_obbligatori");
         exit();
     }
 
     // Query para buscar el usuario por username o email
-    $sql = "SELECT id, nome, cognome, email, username, password, foto 
+    $sql = "SELECT id, nome, cognome, email, username, password, foto, role
             FROM Utente 
             WHERE username = :login_id OR email = :login_id";
     
@@ -43,12 +48,18 @@ try {
         $_SESSION['utente'] = $utente['username']; // Para compatibilidad con código existente
         $_SESSION['utente_username'] = $utente['username'];
         $_SESSION['utente_foto'] = $utente['foto'];
+        $_SESSION['utente_role'] = $utente['role'];
         
         // Log de debug para verificar sesión
         error_log("Login exitoso para usuario: " . $utente['username'] . " (ID: " . $utente['id'] . ")");
         
-        // Redirigir a la página principal con mensaje de éxito
-        header("Location: ../index.php?login=success");
+        // Redirigir según el rol del usuario
+        if ($_SESSION['utente_role'] !== 'admin') {
+            header("Location: ../index.php?login=success");
+        } 
+        if ($_SESSION['utente_role'] === 'admin') {
+            header("Location: dashboard.php?login=success");
+        }
         exit();
         
     } else {
@@ -56,20 +67,20 @@ try {
         error_log("Login fallido para: " . $username_or_email);
         
         if (!$utente) {
-            header("Location: ../login.html?error=utente_non_trovato");
+            header("Location: ../login.php?error=utente_non_trovato");
         } else {
-            header("Location: ../login.html?error=password_errata");
+            header("Location: ../login.php?error=password_errata");
         }
         exit();
     }
 
 } catch (PDOException $e) {
     error_log("Error en login: " . $e->getMessage());
-    header("Location: ../login.html?error=errore_sistema");
+    header("Location: ../login.php?error=errore_sistema");
     exit();
 } catch (Exception $e) {
     error_log("Error general en login: " . $e->getMessage());
-    header("Location: ../login.html?error=errore_generale");
+    header("Location: ../login.php?error=errore_generale");
     exit();
 }
 ?>

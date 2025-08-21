@@ -166,7 +166,6 @@ if ($status === 'cancellato') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Il mio profilo - SonoErasmus+</title>
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/unified-styles.css">
 </head>
 <body>
     <div class="profilo-container">

@@ -1,6 +1,6 @@
 <?php
 try {
-    $pdo = new PDO("pgsql:host=localhost;dbname=sonoerasmus", "postgres", "diana");
+    $pdo = new PDO("pgsql:host=localhost;dbname=postgres", "postgres", "alba2003");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "Connessione riuscita!";
 } catch (PDOException $e) {

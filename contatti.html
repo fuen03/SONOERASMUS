@@ -5,32 +5,26 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contatti e link — SonoErasmus+</title>
 
-  <!-- CSS global existente -->
   <link rel="stylesheet" href="assets/css/style.css" />
-  <!-- CSS específico de esta página (ligero y no rompe nada) -->
   <link rel="stylesheet" href="assets/css/contatti.css" />
 </head>
 <body>
-  <!-- ===== HEADER (idéntico al resto) ===== -->
+  <!-- ===== HEADER ===== -->
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
-      <!-- Botón hamburguesa móvil (3 líneas rojas) -->
       <button class="menu-toggle" id="openMenu" aria-label="Apri menu">
         <span class="menu-toggle-bar"></span>
         <span class="menu-toggle-bar"></span>
         <span class="menu-toggle-bar"></span>
       </button>
 
-      <!-- Logo -->
       <a class="brand" href="index.html" aria-label="SonoErasmus+ Home">
-            <svg class="brand-logo" width="164" height="28" viewBox="0 0 164 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <svg class="brand-logo" width="164" height="28" viewBox="0 0 164 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
           <text x="0" y="22" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="24" font-weight="900" fill="#c62828">Sono</text>
           <text x="60" y="22" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="24" font-weight="900" fill="#8e0000">Erasmus+</text>
         </svg>
-        </a>
+      </a>
 
-
-      <!-- Nav escritorio -->
       <nav class="desktop-nav" aria-label="Navigazione principale">
         <a href="index.html">Pagina Iniziale</a>
         <a href="universita.html">Università</a>
@@ -39,13 +33,13 @@
         <a href="contatti.html" aria-current="page">Contatti e link</a>
       </nav>
 
-       <div class="auth-actions">
+      <div class="auth-actions">
         <a class="btn-login" href="login.html">Accedi</a>
       </div>
     </div>
   </header>
 
-  <!-- ===== MENÚ MÓVIL (igual que el resto) ===== -->
+  <!-- ===== MENÚ MÓVIL ===== -->
   <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <div class="mobile-menu-inner">
       <button class="close-menu" id="closeMenu" aria-label="Chiudi menu">×</button>
@@ -67,59 +61,160 @@
     </ol>
   </nav>
 
-  <!-- ===== HERO / INTRO + BÚSQUEDA ===== -->
+  <!-- ===== HERO ===== -->
   <section class="section contact-hero">
     <h1 class="hero-title">Contatti e link utili</h1>
-    <p class="hero-lead">Cerca università, associazioni e riferimenti per ottenere informazioni o aiuto.</p>
-
-    <form id="searchForm" class="search-row" role="search" aria-label="Cerca contatti">
-      <input id="q" name="q" type="search" class="search-input" placeholder="Es. Padova, ESN, Firenze, e‑mail…" />
-      <button class="search-btn" type="submit">Cerca</button>
-    </form>
   </section>
 
-  <!-- ===== LISTAS DE CONTACTOS ===== -->
+  <!-- ===== UNIVERSITÀ (SOLO VISITA) ===== -->
   <section class="section" aria-labelledby="titUni">
     <h2 id="titUni" class="group-title">Università</h2>
+
     <div class="cards-grid">
-      <article class="card" data-text="università di padova padova urp@unipd.it international desk">
+      <!-- 1-3 ya estaban -->
+      <article class="card" data-text="università di padova padova unipd veneto">
         <h3 class="card-title">Università di Padova</h3>
         <p class="card-meta">International Desk</p>
-        <p class="card-line"><strong>E‑mail:</strong> <a href="mailto:urp@unipd.it">urp@unipd.it</a></p>
         <a class="card-link" href="https://www.unipd.it/" target="_blank" rel="noopener">Sito ufficiale</a>
       </article>
 
-      <article class="card" data-text="università di firenze firenze info@unifi.it">
+      <article class="card" data-text="università di firenze firenze unifi toscana">
         <h3 class="card-title">Università di Firenze</h3>
         <p class="card-meta">Ufficio Relazioni Internazionali</p>
-        <p class="card-line"><strong>E‑mail:</strong> <a href="mailto:info@unifi.it">info@unifi.it</a></p>
         <a class="card-link" href="https://www.unifi.it/" target="_blank" rel="noopener">Sito ufficiale</a>
       </article>
 
-      <article class="card" data-text="sapienza università di roma roma segreteria@sapienza.it">
+      <article class="card" data-text="sapienza università di roma roma lazio uniroma1">
         <h3 class="card-title">Sapienza – Università di Roma</h3>
         <p class="card-meta">International Office</p>
-        <p class="card-line"><strong>E‑mail:</strong> <a href="mailto:segreteria@sapienza.it">segreteria@sapienza.it</a></p>
         <a class="card-link" href="https://www.uniroma1.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+      </article>
+
+      <!-- +15 nuevas (solo visita: link oficial) -->
+      <article class="card" data-text="università di bologna alma mater bologna emilia-romagna unibo">
+        <h3 class="card-title">Alma Mater Studiorum — Università di Bologna</h3>
+        <p class="card-meta">Welcome/International</p>
+        <a class="card-link" href="https://www.unibo.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+      </article>
+
+      <article class="card" data-text="università di milano statale milano lombardia unimi">
+        <h3 class="card-title">Università degli Studi di Milano</h3>
+        <p class="card-meta">International Students</p>
+        <a class="card-link" href="https://www.unimi.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+      </article>
+
+      <article class="card" data-text="politecnico di milano polimi milano ingegneria">
+        <h3 class="card-title">Politecnico di Milano</h3>
+        <p class="card-meta">International Admissions</p>
+        <a class="card-link" href="https://www.polimi.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+      </article>
+
+      <article class="card" data-text="università di torino torino piemonte unito">
+        <h3 class="card-title">Università degli Studi di Torino</h3>
+        <p class="card-meta">International Mobility</p>
+        <a class="card-link" href="https://www.unito.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+      </article>
+
+      <article class="card" data-text="politecnico di torino politecnico torino piemonte polito">
+        <h3 class="card-title">Politecnico di Torino</h3>
+        <p class="card-meta">Incoming Students</p>
+        <a class="card-link" href="https://www.polito.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+      </article>
+
+      <article class="card" data-text="università di pisa pisa toscana unipi">
+        <h3 class="card-title">Università di Pisa</h3>
+        <p class="card-meta">International</p>
+        <a class="card-link" href="https://www.unipi.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+      </article>
+
+      <article class="card" data-text="scuola normale superiore pisa sns">
+        <h3 class="card-title">Scuola Normale Superiore</h3>
+        <p class="card-meta">Welcome</p>
+        <a class="card-link" href="https://www.sns.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+      </article>
+
+      <article class="card" data-text="università di napoli federico ii napoli campania unina">
+        <h3 class="card-title">Università degli Studi di Napoli Federico II</h3>
+        <p class="card-meta">International Relations</p>
+        <a class="card-link" href="https://www.unina.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+      </article>
+
+      <article class="card" data-text="università di bari aldo moro bari puglia uniba">
+        <h3 class="card-title">Università degli Studi di Bari “Aldo Moro”</h3>
+        <p class="card-meta">International Office</p>
+        <a class="card-link" href="https://www.uniba.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+      </article>
+
+      <article class="card" data-text="università di trento trento trentino unitn">
+        <h3 class="card-title">Università degli Studi di Trento</h3>
+        <p class="card-meta">International</p>
+        <a class="card-link" href="https://www.unitn.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+      </article>
+
+      <article class="card" data-text="università di trieste trieste friuli unts">
+        <h3 class="card-title">Università degli Studi di Trieste</h3>
+        <p class="card-meta">Incoming</p>
+        <a class="card-link" href="https://www.units.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+      </article>
+
+      <article class="card" data-text="università di genova genova liguria unige">
+        <h3 class="card-title">Università degli Studi di Genova</h3>
+        <p class="card-meta">International Students</p>
+        <a class="card-link" href="https://unige.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+      </article>
+
+      <article class="card" data-text="università di verona verona veneto univr">
+        <h3 class="card-title">Università degli Studi di Verona</h3>
+        <p class="card-meta">International</p>
+        <a class="card-link" href="https://www.univr.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+      </article>
+
+      <article class="card" data-text="università di pavia pavia lombardia unipv">
+        <h3 class="card-title">Università degli Studi di Pavia</h3>
+        <p class="card-meta">Welcome/International</p>
+        <a class="card-link" href="https://web.unipv.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+      </article>
+
+      <article class="card" data-text="università di siena siena toscana unisi">
+        <h3 class="card-title">Università degli Studi di Siena</h3>
+        <p class="card-meta">International</p>
+        <a class="card-link" href="https://www.unisi.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+      </article>
+
+      <article class="card" data-text="università di parma parma emilia unipr">
+        <h3 class="card-title">Università degli Studi di Parma</h3>
+        <p class="card-meta">International</p>
+        <a class="card-link" href="https://www.unipr.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+      </article>
+
+      <article class="card" data-text="università di catania catania sicilia unict">
+        <h3 class="card-title">Università degli Studi di Catania</h3>
+        <p class="card-meta">International</p>
+        <a class="card-link" href="https://www.unict.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+      </article>
+
+      <article class="card" data-text="università di palermo palermo sicilia unipa">
+        <h3 class="card-title">Università degli Studi di Palermo</h3>
+        <p class="card-meta">International</p>
+        <a class="card-link" href="https://www.unipa.it/" target="_blank" rel="noopener">Sito ufficiale</a>
       </article>
     </div>
   </section>
 
+  <!-- ===== ESN / ASSOCIAZIONI ===== -->
   <section class="section" aria-labelledby="titAss">
     <h2 id="titAss" class="group-title">ESN / Associazioni</h2>
     <div class="cards-grid">
-      <article class="card" data-text="esn padova instagram esn padova info@esnpadova.it">
+      <article class="card" data-text="esn padova instagram esn padova">
         <h3 class="card-title">ESN Padova</h3>
-        <p class="card-line"><strong>E‑mail:</strong> <a href="mailto:info@esnpadova.it">info@esnpadova.it</a></p>
         <div class="social-row">
           <a class="social" href="https://instagram.com/esnpadova" target="_blank" rel="noopener" aria-label="Instagram ESN Padova">IG</a>
           <a class="card-link" href="https://esnpadova.it" target="_blank" rel="noopener">Sito ufficiale</a>
         </div>
       </article>
 
-      <article class="card" data-text="esn firenze facebook esn firenze hello@esnfirenze.it">
+      <article class="card" data-text="esn firenze facebook esn firenze">
         <h3 class="card-title">ESN Firenze</h3>
-        <p class="card-line"><strong>E‑mail:</strong> <a href="mailto:hello@esnfirenze.it">hello@esnfirenze.it</a></p>
         <div class="social-row">
           <a class="social" href="#" target="_blank" rel="noopener" aria-label="Facebook ESN Firenze">FB</a>
           <a class="card-link" href="#" target="_blank" rel="noopener">Sito ufficiale</a>
@@ -128,45 +223,8 @@
     </div>
   </section>
 
-  <!-- ===== FORMULARIOS (demo front) ===== -->
-  <section class="section" aria-labelledby="suggTit">
-    <h2 id="suggTit" class="group-title">Suggerisci un contatto</h2>
-    <form id="formSuggerisci" class="contact-form" novalidate>
-      <div class="form-row">
-        <div class="form-field">
-          <label for="suggNome">Nome / Organizzazione</label>
-          <input id="suggNome" type="text" required />
-        </div>
-        <div class="form-field">
-          <label for="suggTipo">Tipo</label>
-          <select id="suggTipo">
-            <option value="universita">Università</option>
-            <option value="associazione">Associazione / ESN</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-field">
-          <label for="suggEmail">E‑mail</label>
-          <input id="suggEmail" type="email" placeholder="esempio@dominio.it" />
-        </div>
-        <div class="form-field">
-          <label for="suggLink">Link</label>
-          <input id="suggLink" type="url" placeholder="https://…" />
-        </div>
-      </div>
-      <div class="form-field">
-        <label for="suggNote">Note</label>
-        <textarea id="suggNote" rows="3" placeholder="Breve descrizione (facoltativa)"></textarea>
-      </div>
-      <button class="btn-primary" type="submit">Salva suggerimento</button>
-      <p class="form-note">Demo didattica: i dati non si salvano nel server.</p>
-    </form>
-  </section>
-
  
-
-  <!-- ===== FOOTER (igual que el resto) ===== -->
+  <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div>
@@ -193,9 +251,7 @@
     <div class="footer-bottom">© 2025 SonoErasmus+ — Tutti i diritti riservati</div>
   </footer>
 
-  <!-- JS del sitio (no lo modifico) -->
   <script src="assets/js/main.js"></script>
-  <!-- JS específico de Contatti -->
   <script src="assets/js/contatti.js"></script>
 </body>
 </html>

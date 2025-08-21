@@ -38,9 +38,9 @@ $currentUser = getCurrentUser($pdo);
       <!-- Nav escritorio -->
       <nav class="desktop-nav" aria-label="Menu principale">
         <a href="app/universita.php">Università</a>
-        <a href="esperienze.html">Esperienza Erasmus</a>
-        <a href="cosafare.html">Cosa Fare</a>
-        <a href="contatti.html">Contatti e link</a>
+        <a href="app/esperienze.php">Esperienza Erasmus</a>
+        <a href="app/cosafare.php">Cosa Fare</a>
+        <a href="app/contatti.php">Contatti e link</a>
       </nav>
 
       <!-- Sistema de usuario -->
@@ -58,7 +58,7 @@ $currentUser = getCurrentUser($pdo);
             </div>
           </div>
         <?php else: ?>
-          <a class="btn-login" href="login.html" aria-label="Accedi">Accedi</a>
+          <a class="btn-login" href="app/login.php" aria-label="Accedi">Accedi</a>
         <?php endif; ?>
       </div>
     </div>
@@ -85,14 +85,14 @@ $currentUser = getCurrentUser($pdo);
         <?php endif; ?>
         
         <a class="card-link" href="app/universita.php"><span>Università</span><i class="card-chevron" aria-hidden="true"></i></a>
-        <a class="card-link" href="esperienze.html"><span>Esperienza Erasmus</span><i class="card-chevron" aria-hidden="true"></i></a>
-        <a class="card-link" href="cosafare.html"><span>Cosa Fare</span><i class="card-chevron" aria-hidden="true"></i></a>
-        <a class="card-link" href="contatti.html"><span>Contatti e link</span><i class="card-chevron" aria-hidden="true"></i></a>
+        <a class="card-link" href="app/esperienze.php"><span>Esperienza Erasmus</span><i class="card-chevron" aria-hidden="true"></i></a>
+        <a class="card-link" href="app/cosafare.php"><span>Cosa Fare</span><i class="card-chevron" aria-hidden="true"></i></a>
+        <a class="card-link" href="app/contatti.php"><span>Contatti e link</span><i class="card-chevron" aria-hidden="true"></i></a>
         
         <?php if ($currentUser): ?>
           <a class="card-link logout-link" href="app/logout.php"><span>Logout</span><i class="card-chevron" aria-hidden="true"></i></a>
         <?php else: ?>
-          <a class="card-link" href="login.html"><span>Accedi</span><i class="card-chevron" aria-hidden="true"></i></a>
+          <a class="card-link" href="login.php"><span>Accedi</span><i class="card-chevron" aria-hidden="true"></i></a>
         <?php endif; ?>
       </nav>
     </div>
@@ -205,7 +205,7 @@ $currentUser = getCurrentUser($pdo);
               Leggi le <strong>storie reali degli studenti Erasmus</strong>, scopri come hanno vissuto 
               la loro avventura in Italia e lasciati ispirare per la tua esperienza.
             </p>
-            <a href="esperienze.html" class="btn-red">Scopri di più</a>
+            <a href="app/esperienze.php" class="btn-red">Scopri di più</a>
           </div>
         </div>
       </section>
@@ -228,7 +228,7 @@ $currentUser = getCurrentUser($pdo);
               Scopri <strong>eventi, attività e consigli pratici</strong> per vivere al meglio il tuo Erasmus in Italia: 
               dal divertimento alla cultura, dalla vita sociale alle escursioni.
             </p>
-            <a href="cosafare.html" class="btn-red">Scopri di più</a>
+            <a href="cosafare.php" class="btn-red">Scopri di più</a>
           </div>
         </div>
       </section>
@@ -243,7 +243,7 @@ $currentUser = getCurrentUser($pdo);
               Qui trovi tutte le <strong>informazioni utili per metterti in contatto</strong> con noi 
               e i link alle principali risorse per studenti Erasmus in Italia.
             </p>
-            <a href="contatti.html" class="btn-red">Scopri di più</a>
+            <a href="contatti.php" class="btn-red">Scopri di più</a>
           </div>
           <figure class="contatti-img">
             <img src="assets/img/contatti.png" alt="Numero di telefono Erasmus" loading="lazy">
@@ -266,9 +266,9 @@ $currentUser = getCurrentUser($pdo);
       <nav class="footer-links" aria-label="Collegamenti">
         <a href="#home">Home</a>
         <a href="app/universita.php">Università</a>
-        <a href="esperienze.html">Esperienze</a>
-        <a href="cosafare.html">Cosa Fare</a>
-        <a href="contatti.html">Contatti</a>
+        <a href="app/esperienze.php">Esperienze</a>
+        <a href="app/cosafare.php">Cosa Fare</a>
+        <a href="app/contatti.php">Contatti</a>
       </nav>
 
       <div class="footer-contact">

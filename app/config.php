@@ -1,28 +1,9 @@
 <?php
-<<<<<<< HEAD
-
-$DB_HOST='localhost'; $DB_NAME='sonoerasmus'; $DB_USER='root'; $DB_PASS='';
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-$mysqli = new mysqli($DB_HOST,$DB_USER,$DB_PASS,$DB_NAME);
-$mysqli->set_charset('utf8mb4');
-
-function h($s){ return htmlspecialchars($s ?? '', ENT_QUOTES, 'UTF-8'); }
-
-if (session_status() === PHP_SESSION_NONE) {
-  session_start();
-}
-
-// Helpers de auth
-function current_user(){ return $_SESSION['user'] ?? null; }
-function require_login(){
-  if (!current_user()){ header('Location: /login.html?next='.urlencode($_SERVER['REQUEST_URI'])); exit; }
-}
-function is_admin(){ return (current_user()['role'] ?? '') === 'admin'; }
-=======
 $DB_HOST = 'localhost';
-$DB_NAME = 'sonoerasmus';
+$DB_PORT = '5432';
+$DB_NAME = 'postgres';
 $DB_USER = 'postgres';
-$DB_PASS = ' ';
+$DB_PASS = 'alba2003';
 
 try {
     // Conexión usando PDO para PostgreSQL
@@ -72,6 +53,31 @@ function isLoggedIn() {
     return isset($_SESSION['utente_id']) && !empty($_SESSION['utente_id']);
 }
 
+// Función para verificar si el usuario es administrador
+function isAdmin() {
+    return isLoggedIn() && isset($_SESSION['utente_role']) && $_SESSION['utente_role'] === 'admin';
+}
+
+// Función para requerir permisos de administrador
+function requireAdmin($redirect_to = '../login.php') {
+    if (!isAdmin()) {
+        header("Location: $redirect_to?error=accesso_negato");
+        exit();
+    }
+}
+
+function getConfig($clave, $default = '') {
+    global $pdo;
+    try {
+        $stmt = $pdo->prepare("SELECT valor FROM configuracion_sitio WHERE clave = :clave");
+        $stmt->execute([':clave' => $clave]);
+        $result = $stmt->fetchColumn();
+        return $result !== false ? $result : $default;
+    } catch(PDOException $e) {
+        return $default;
+    }
+}
+
 // Función para obtener datos completos del usuario logueado
 function getCurrentUser($pdo) {
     if (!isLoggedIn()) {
@@ -100,7 +106,7 @@ function getCurrentUser($pdo) {
 }
 
 // Función para requerir login (usar en páginas protegidas)
-function requireLogin($redirect_to = '../login.html') {
+function requireLogin($redirect_to = '../login.php') {
     if (!isLoggedIn()) {
         header("Location: $redirect_to?error=login_required");
         exit();
@@ -133,6 +139,29 @@ function logUserAction($action, $details = '', $user_id = null) {
     error_log($log_entry);
 }
 
+// Función para crear usuario admin si no existe
+function createAdminUserIfNotExists($pdo) {
+    try {
+        // Verificar si el usuario admin existe
+        $stmt = $pdo->prepare("SELECT COUNT(*) as count FROM Utente WHERE username = 'admin'");
+        $stmt->execute();
+        $result = $stmt->fetch();
+        
+        if ($result['count'] == 0) {
+            // Crear usuario admin
+            $admin_password = password_hash('admin', PASSWORD_DEFAULT);
+            $stmt = $pdo->prepare("INSERT INTO Utente (nome, cognome, email, username, password, role) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt->execute(['Admin', 'Sistema', 'admin@sonoerasmus.it', 'admin', $admin_password, 'admin']);
+            error_log("Usuario admin creado automáticamente");
+        }
+    } catch (PDOException $e) {
+        error_log("Error creando usuario admin: " . $e->getMessage());
+    }
+}
+
+// Crear usuario admin automáticamente si no existe
+createAdminUserIfNotExists($pdo);
+
 // Configuración de zona horaria
 date_default_timezone_set('Europe/Rome');
 
@@ -143,4 +172,3 @@ if (isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] === 'localhost') {
     error_reporting(E_ALL);
 }
 ?>
->>>>>>> 28199591dbbcaf8ed640a6713e53c12088ce2550
