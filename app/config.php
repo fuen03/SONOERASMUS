@@ -20,6 +20,7 @@ function require_login(){
 function is_admin(){ return (current_user()['role'] ?? '') === 'admin'; }
 =======
 $DB_HOST = 'localhost';
+$DB_PORT = '5432';
 $DB_NAME = 'sonoerasmus';
 $DB_USER = 'postgres';
 $DB_PASS = ' ';
