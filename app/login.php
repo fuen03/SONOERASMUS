@@ -4,7 +4,7 @@ require_once 'config.php';
 
 // Si el usuario ya está logueado, redirigir
 if (isLoggedIn()) {
-    header("Location: ../index.php");
+    header("Location: index.php");
     exit();
 }
 
