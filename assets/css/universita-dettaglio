@@ -1,0 +1,304 @@
+/* ===== ESTILOS PARA PÁGINA DETALLE UNIVERSIDAD ===== */
+
+/* Hero de la universidad */
+.uni-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 520px) 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.uni-cover {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.12);
+  object-fit: cover;
+  max-height: 340px;
+}
+
+.uni-meta h1 {
+  margin: 0.2rem 0 0;
+  color: #c62828;
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.uni-city {
+  color: #555;
+  margin: 0.25rem 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.uni-links {
+  margin: 1rem 0;
+}
+
+/* Botones */
+.btn-red {
+  display: inline-block;
+  background: #c62828;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 800;
+  margin-right: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-red:hover {
+  background: #8e0000;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-block;
+  border: 2px solid #c62828;
+  color: #c62828;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-right: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: #c62828;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Cajas informativas */
+.info-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.info-box {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #c62828;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.info-box h4 {
+  color: #c62828;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.info-box p {
+  margin: 0;
+  line-height: 1.5;
+  color: #444;
+}
+
+/* Sección de llamada a la acción */
+.cta-section {
+  background: linear-gradient(135deg, #c62828, #8e0000);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  margin: 2rem 0;
+  box-shadow: 0 6px 20px rgba(198, 40, 40, 0.3);
+}
+
+.cta-section h3 {
+  color: white;
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.cta-section p {
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.cta-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cta-section .btn-red {
+  background: white;
+  color: #c62828;
+  font-weight: 700;
+}
+
+.cta-section .btn-red:hover {
+  background: #f0f0f0;
+  transform: translateY(-1px);
+}
+
+.cta-section .btn-outline {
+  border-color: white;
+  color: white;
+}
+
+.cta-section .btn-outline:hover {
+  background: white;
+  color: #c62828;
+}
+
+/* Estilos de contenido */
+.section h2 {
+  color: #c62828;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.section h3 {
+  color: #333;
+  margin: 2rem 0 1rem 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.section p {
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.section ul {
+  margin: 1rem 0;
+  padding-left: 0;
+}
+
+.section ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Lista con emojis */
+.section ul li::before {
+  content: attr(data-emoji);
+  margin-right: 0.5rem;
+}
+
+/* Estilos para el enlace de regreso */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  color: #c62828;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #8e0000;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .uni-hero {
+    grid-template-columns: 1fr;
+  }
+  
+  .uni-cover {
+    max-height: 280px;
+  }
+  
+  .uni-meta h1 {
+    font-size: 2rem;
+  }
+  
+  .info-boxes {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-red, .btn-outline {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .uni-hero {
+    margin: 1rem 0;
+  }
+  
+  .uni-meta h1 {
+    font-size: 1.6rem;
+  }
+  
+  .uni-city {
+    font-size: 1rem;
+  }
+  
+  .cta-section {
+    padding: 1.5rem;
+  }
+  
+  .section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .section h3 {
+    font-size: 1.2rem;
+    margin: 1.5rem 0 0.5rem 0;
+  }
+  
+  .info-box {
+    padding: 1rem;
+  }
+}
+
+/* Animaciones sutiles */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.uni-hero,
+.section {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Mejoras de accesibilidad */
+.btn-red:focus,
+.btn-outline:focus {
+  outline: 2px solid #c62828;
+  outline-offset: 2px;
+}
+
+.back-link:focus {
+  outline: 2px solid #c62828;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
