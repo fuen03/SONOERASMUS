@@ -1,45 +1,68 @@
 <?php
 session_start();
-include("connessione.php");
+require_once 'config.php';
 
-// 1. Controlla se l'utente è loggato
-if (!isset($_SESSION['utente_id'])) {
-    header("Location: index.php?sezione=login");
+// Verificar que el usuario esté logueado
+if (!isLoggedIn()) {
+    header("Location: ../login.html?error=Devi essere loggato per partecipare agli eventi");
     exit();
 }
 
-// 2. Controlla se è stato inviato un ID evento tramite POST
-if (isset($_POST['evento_id']) && !empty($_POST['evento_id'])) {
-    $evento_id = $_POST['evento_id'];
-    $utente_id = $_SESSION['utente_id'];
-
-    try {
-        // Prepara la query per inserire la partecipazione nel database
-        $sql = "INSERT INTO Partecipazioni (utente_id, evento_id) VALUES (:utente_id, :evento_id)";
-        $stmt = $pdo->prepare($sql);
-        
-        // Collega i parametri e esegui la query
-        $stmt->bindParam(':utente_id', $utente_id, PDO::PARAM_INT);
-        $stmt->bindParam(':evento_id', $evento_id, PDO::PARAM_INT);
-        $stmt->execute();
-
-        // Reindirizza l'utente alla pagina eventi con un messaggio di successo
-        header("Location: index.php?sezione=eventi&status=successo");
-        exit();
-
-    } catch (PDOException $e) {
-        if ($e->getCode() == '23505') {
-        header("Location: index.php?sezione=eventi&status=errore&message=" . urlencode("Ti sei già iscritto a questo evento!"));
-    } else {
-        // Per altri tipi di errori, mostra un messaggio generico
-        header("Location: index.php?sezione=eventi&status=errore&message=" . urlencode("Si è verificato un errore: " . $e->getMessage()));
-    }
+// Verificar que se haya enviado un ID evento
+if (!isset($_POST['evento_id']) || empty($_POST['evento_id'])) {
+    header("Location: eventi.php?status=errore&message=" . urlencode("ID evento non valido"));
     exit();
-    }
+}
 
-} else {
-    // Se non viene inviato un ID evento valido, reindirizza alla pagina eventi
-    header("Location: index.php?sezione=eventi&status=errore&message=ID evento non valido.");
+$evento_id = (int)$_POST['evento_id'];
+$utente_id = $_SESSION['utente_id'];
+
+try {
+    // Verificar que el evento exista y esté disponible
+    $sql_evento = "SELECT e.*, 
+                   (SELECT COUNT(*) FROM Partecipazioni p WHERE p.evento_id = e.id) as partecipanti_attuali,
+                   (SELECT COUNT(*) FROM Partecipazioni p WHERE p.evento_id = e.id AND p.utente_id = :utente_id) as gia_iscritto
+                   FROM Evento e WHERE e.id = :evento_id AND e.data_evento >= NOW()";
+    
+    $stmt_evento = $pdo->prepare($sql_evento);
+    $stmt_evento->execute([':evento_id' => $evento_id, ':utente_id' => $utente_id]);
+    $evento = $stmt_evento->fetch();
+    
+    if (!$evento) {
+        header("Location: eventi.php?status=errore&message=" . urlencode("Evento non trovato o già terminato"));
+        exit();
+    }
+    
+    // Verificar que el usuario no esté ya inscrito
+    if ($evento['gia_iscritto'] > 0) {
+        header("Location: eventi.php?status=errore&message=" . urlencode("Ti sei già iscritto a questo evento"));
+        exit();
+    }
+    
+    // Verificar capacidad máxima
+    if ($evento['max_partecipanti'] && $evento['partecipanti_attuali'] >= $evento['max_partecipanti']) {
+        header("Location: eventi.php?status=errore&message=" . urlencode("L'evento ha raggiunto la capacità massima"));
+        exit();
+    }
+    
+    // Insertar participación
+    $sql_insert = "INSERT INTO Partecipazioni (utente_id, evento_id, data_iscrizione) VALUES (:utente_id, :evento_id, NOW())";
+    $stmt_insert = $pdo->prepare($sql_insert);
+    $stmt_insert->execute([':utente_id' => $utente_id, ':evento_id' => $evento_id]);
+    
+    // Redirigir con éxito
+    header("Location: eventi.php?status=successo");
+    exit();
+    
+} catch (PDOException $e) {
+    error_log("Error en partecipazione: " . $e->getMessage());
+    
+    // Verificar si es error de clave duplicada
+    if ($e->getCode() == '23505' || strpos($e->getMessage(), 'duplicate key') !== false) {
+        header("Location: eventi.php?status=errore&message=" . urlencode("Ti sei già iscritto a questo evento!"));
+    } else {
+        header("Location: eventi.php?status=errore&message=" . urlencode("Si è verificato un errore. Riprova più tardi."));
+    }
     exit();
 }
 ?>
