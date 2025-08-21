@@ -136,68 +136,43 @@
     <h2 id="risTit">Risultati</h2>
 
     <div class="cf-grid">
-      <!-- Card esempio 1 -->
-      <article class="cf-card">
-        <div class="cf-card-media" aria-hidden="true"></div>
-        <div class="cf-card-body">
-          <h3 class="cf-card-title">Visita ai musei civici</h3>
-          <p class="cf-card-text">
-            Scopri la collezione storica cittadina con ingresso scontato per studenti.
-          </p>
-          <div class="cf-card-meta">Padova · Tutto l’anno</div>
-          <a class="cf-card-cta" href="#" aria-label="Dettagli su Visita ai musei civici">Dettagli</a>
-        </div>
-      </article>
+<article class="cf-card">
+  <img class="cf-card-media" src="assets/img/museo.jpg" alt="Musei civici">
 
-      <!-- Card esempio 2 -->
-      <article class="cf-card">
-        <div class="cf-card-media" aria-hidden="true"></div>
-        <div class="cf-card-body">
-          <h3 class="cf-card-title">Gita sui Colli Euganei</h3>
-          <p class="cf-card-text">
-            Una giornata tra sentieri, borghi e degustazioni. Perfetta in primavera.
-          </p>
-          <div class="cf-card-meta">Veneto · Stagionale</div>
-          <a class="cf-card-cta" href="#" aria-label="Dettagli su Gita sui Colli Euganei">Dettagli</a>
-        </div>
-      </article>
+  <div class="cf-card-body">
+    <h3 class="cf-card-title">Visita ai musei civici</h3>
+    <p class="cf-card-text">Scopri la collezione storica cittadina con ingresso scontato per studenti.</p>
+    <div class="cf-card-meta">15 Ottobre 2025</div>
+  </div>
+</article>
+<article class="cf-card">
+  <img class="cf-card-media" src="assets/img/gita.jpg" alt="Gita a Venezia">
 
-      <!-- Card esempio 3 -->
-      <article class="cf-card">
-        <div class="cf-card-media" aria-hidden="true"></div>
-        <div class="cf-card-body">
-          <h3 class="cf-card-title">Aperitivo tipico</h3>
-          <p class="cf-card-text">
-            Spritz e cicchetti: imperdibile rito serale veneto per fare amicizia.
-          </p>
-          <div class="cf-card-meta">Centro storico · Ogni settimana</div>
-          <a class="cf-card-cta" href="#" aria-label="Dettagli su Aperitivo tipico">Dettagli</a>
-        </div>
-      </article>
-    </div>
+  <div class="cf-card-body">
+    <h3 class="cf-card-title">Gita a Venezia</h3>
+    <p class="cf-card-text">Un giorno tra i canali e le piazze di Venezia con guida in italiano.</p>
+    <div class="cf-card-meta">20 Ottobre 2025</div>
+  </div>
+</article>
+
+<article class="cf-card">
+  <img class="cf-card-media" src="assets/img/streetfood.jpg" alt="Street food tour">
+
+  <div class="cf-card-body">
+    <h3 class="cf-card-title">Street food tour</h3>
+    <p class="cf-card-text">Scopri i migliori piatti tipici locali con una guida esperta.</p>
+    <div class="cf-card-meta">25 Ottobre 2025</div>
+  </div>
+</article>
+  
   </main>
 
-  <!-- ===== Calendario (placeholder) ===== -->
-  <section class="section" aria-labelledby="calTit">
-    <h2 id="calTit">Calendario eventi</h2>
-    <div class="cf-calendar">
-      <div class="cal-header">
-        <button class="cal-btn" type="button" aria-label="Mese precedente">‹</button>
-        <div class="cal-month">Agosto 2025</div>
-        <button class="cal-btn" type="button" aria-label="Mese successivo">›</button>
-      </div>
-      <div class="cal-grid" aria-hidden="true">
-        <span>Lu</span><span>Ma</span><span>Me</span><span>Gi</span><span>Ve</span><span>Sa</span><span>Do</span>
-        <!-- giorni fittizi -->
-        <b></b><b></b><b></b><b></b><b>1</b><b>2</b><b>3</b>
-        <b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b><b>10</b>
-        <b>11</b><b>12</b><b>13</b><b>14</b><b>15</b><b>16</b><b>17</b>
-        <b>18</b><b>19</b><b>20</b><b>21</b><b>22</b><b>23</b><b>24</b>
-        <b>25</b><b>26</b><b>27</b><b>28</b><b>29</b><b>30</b><b>31</b>
-      </div>
-    </div>
-  </section>
 
+<!-- FullCalendar CSS -->
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/main.min.css" rel="stylesheet">
+<div id="calendar"></div>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+<script src="assets/js/calendar.js" defer></script>
   <!-- ===== Footer igual al resto ===== -->
   <footer class="site-footer">
     <div class="footer-inner">

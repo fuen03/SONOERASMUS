@@ -90,3 +90,26 @@ INSERT INTO universities (name, slug, city, website, email, phone, cover_image, 
 ('Università di Udine','uniud','Udine','https://www.uniud.it','info@uniud.it','+39 0432 556111','/assets/img/calendar.jpg',
  'Qualità della vita e didattica su misura nel Friuli.',
  '<p>UniUD è giovane e dinamica, perfetta per chi cerca community e contatto con il territorio.</p>');
+
+CREATE TABLE IF NOT EXISTS cosa_fare (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title        VARCHAR(160) NOT NULL,
+  city         VARCHAR(100),
+  category     VARCHAR(60),
+  period       VARCHAR(60),
+  image        VARCHAR(255) NOT NULL, -- p.ej. /assets/img/museo.jpg
+  short_desc   VARCHAR(300),
+  long_desc    MEDIUMTEXT,
+  created_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO cosa_fare (title,city,category,period,image,short_desc,long_desc) VALUES
+('Visita ai musei civici','Padova','musei','Tutto l’anno','/assets/img/museo.jpg',
+ 'Scopri la collezione storica cittadina con ingresso scontato.',
+ '<p>I musei civici offrono collezioni d’arte e storia con riduzioni per studenti Erasmus.</p>'),
+('Gita sui Colli Euganei','Veneto','gite','Stagionale','/assets/img/gite.jpg',
+ 'Una giornata tra sentieri, borghi e degustazioni.',
+ '<p>Percorsi facili, cantine locali e paesaggi verdi perfetti in primavera.</p>'),
+('Aperitivo tipico','Centro storico','cibo','Ogni settimana','/assets/img/streetfood.jpg',
+ 'Spritz e cicchetti: rito serale veneto.',
+ '<p>Ideale per socializzare: prova i bacari e i cicchetti tradizionali.</p>');
