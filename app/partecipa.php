@@ -4,7 +4,7 @@ require_once 'config.php';
 
 // Verificar que el usuario esté logueado
 if (!isLoggedIn()) {
-    header("Location: ../login.html?error=Devi essere loggato per partecipare agli eventi");
+    header("Location: login.php?error=Devi essere loggato per partecipare agli eventi");
     exit();
 }
 
