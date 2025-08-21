@@ -4,7 +4,12 @@ require_once 'config.php';
 
 // Si el usuario ya está logueado, redirigir
 if (isLoggedIn()) {
-    header("Location: index.php");
+    if (isAdmin()) {
+        header("Location: dashboard.php");
+    }  
+    if (!isAdmin()) {
+        header("Location: ../index.php");
+    }
     exit();
 }
 
@@ -26,7 +31,7 @@ try {
     }
 
     // Query para buscar el usuario por username o email
-    $sql = "SELECT id, nome, cognome, email, username, password, foto 
+    $sql = "SELECT id, nome, cognome, email, username, password, foto, role
             FROM Utente 
             WHERE username = :login_id OR email = :login_id";
     
@@ -43,12 +48,18 @@ try {
         $_SESSION['utente'] = $utente['username']; // Para compatibilidad con código existente
         $_SESSION['utente_username'] = $utente['username'];
         $_SESSION['utente_foto'] = $utente['foto'];
+        $_SESSION['utente_role'] = $utente['role'];
         
         // Log de debug para verificar sesión
         error_log("Login exitoso para usuario: " . $utente['username'] . " (ID: " . $utente['id'] . ")");
         
-        // Redirigir a la página principal con mensaje de éxito
-        header("Location: ../index.php?login=success");
+        // Redirigir según el rol del usuario
+        if ($_SESSION['utente_role'] !== 'admin') {
+            header("Location: ../index.php?login=success");
+        } 
+        if ($_SESSION['utente_role'] === 'admin') {
+            header("Location: dashboard.php?login=success");
+        }
         exit();
         
     } else {
