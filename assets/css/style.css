@@ -443,6 +443,293 @@ input.is-invalid{ border-color:var(--red-main); background:var(--red-50) }
   margin-top: .75rem;
 }
 
+.current-photo-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.current-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #c62828;
+  box-shadow: 0 4px 8px rgba(198, 40, 40, 0.2);
+}
+
+.photo-label {
+  margin-top: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.photo-options {
+  margin: 1rem 0;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.checkbox-option:hover {
+  background-color: #f5f5f5;
+}
+
+.checkbox-option input[type="checkbox"] {
+  margin: 0;
+}
+
+.form-help {
+  display: block;
+  margin-top: 0.25rem;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+
+/* Estilos adicionales para sistema de avatares - Agregar a unified-styles.css */
+
+/* Avatar de usuario en header */
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #c62828;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.user-avatar:hover {
+  transform: scale(1.05);
+}
+
+/* Avatar en menú móvil */
+.mobile-user-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #c62828;
+  box-shadow: 0 4px 8px rgba(198, 40, 40, 0.2);
+  margin-bottom: 0.5rem;
+}
+
+.mobile-user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1rem;
+}
+
+.mobile-user-info span {
+  font-weight: 600;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+/* Estilos para el perfil */
+.current-photo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+.current-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #c62828;
+  box-shadow: 0 8px 16px rgba(198, 40, 40, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.current-photo img:hover {
+  transform: scale(1.05);
+}
+
+.photo-label {
+  margin-top: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Opciones de foto */
+.photo-options {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #fff8f6;
+  border: 1px solid #fde2dc;
+  border-radius: 8px;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.checkbox-option:hover {
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.checkbox-option input[type="checkbox"] {
+  margin: 0;
+  width: 18px;
+  height: 18px;
+  accent-color: #c62828;
+  cursor: pointer;
+}
+
+.checkbox-option span:not(.checkmark) {
+  flex: 1;
+  color: #555;
+}
+
+/* Ayuda de formulario */
+.form-help {
+  display: block;
+  margin-top: 0.5rem;
+  color: #777;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .current-photo img {
+      width: 100px;
+      height: 100px;
+  }
+  
+  .user-avatar {
+      width: 35px;
+      height: 35px;
+  }
+  
+  .mobile-user-avatar {
+      width: 50px;
+      height: 50px;
+      border-width: 2px;
+  }
+}
+
+/* Estados de los mensajes */
+.success-message {
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.error-message {
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Menu dropdown mejorado */
+.user-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  min-width: 200px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.user-menu:hover .user-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.user-dropdown a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #eee;
+}
+
+.user-dropdown a:last-child {
+  border-bottom: none;
+}
+
+.user-dropdown a:hover {
+  background-color: #f8f9fa;
+}
+
+.user-dropdown a:first-child {
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.user-dropdown a:last-child {
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+/* Avatar por defecto con gradiente mejorado */
+.default-avatar {
+  background: linear-gradient(135deg, #c62828 0%, #8e0000 100%);
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
 
 
 /* Accesibilidad focus */
