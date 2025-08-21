@@ -1,0 +1,40 @@
+.admin-container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+.admin-header { 
+    background: linear-gradient(135deg, #c62828, #8e0000); 
+    color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;
+}
+.admin-nav { display: flex; gap: 1rem; margin: 2rem 0; flex-wrap: wrap; }
+.admin-nav a { 
+    background: #c62828; color: white; padding: 0.8rem 1.5rem; 
+    text-decoration: none; border-radius: 8px; font-weight: 600;
+    transition: background 0.2s;
+}
+.admin-nav a:hover { background: #8e0000; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+.stat-card { 
+    background: white; border: 1px solid #ddd; border-radius: 12px; padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.stat-number { font-size: 2.5rem; font-weight: bold; color: #c62828; }
+.stat-label { color: #666; font-weight: 600; margin-top: 0.5rem; }
+.content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.content-card { 
+    background: white; border: 1px solid #ddd; border-radius: 12px; padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.content-card h3 { color: #c62828; margin-bottom: 1rem; }
+.recent-list { list-style: none; padding: 0; }
+.recent-item { 
+    padding: 0.8rem 0; border-bottom: 1px solid #eee; 
+    display: flex; justify-content: space-between; align-items: center;
+}
+.recent-item:last-child { border-bottom: none; }
+.user-info { flex-grow: 1; }
+.user-name { font-weight: 600; color: #333; }
+.user-email { color: #666; font-size: 0.9rem; }
+.event-date { color: #c62828; font-weight: 600; font-size: 0.9rem; }
+@media (max-width: 768px) {
+    .content-grid { grid-template-columns: 1fr; }
+    .admin-nav { justify-content: center; }
+}
+    
