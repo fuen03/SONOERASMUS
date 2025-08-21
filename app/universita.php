@@ -55,8 +55,8 @@ try {
       <!-- Nav escritorio -->
       <nav class="desktop-nav" aria-label="Menu principale">
         <a href="universita.php">Università</a>
-        <a href="../esperienze.html">Esperienza Erasmus</a>
-        <a href="contatti.php">Contatti e link</a>
+        <a href="esperienze.php">Esperienza Erasmus</a>
+        <a href="../contatti.html">Contatti e link</a>
       </nav>
 
       <!-- Sistema de usuario -->
@@ -101,9 +101,8 @@ try {
         <?php endif; ?>
         
         <a class="card-link" href="universita.php"><span>Università</span><i class="card-chevron" aria-hidden="true"></i></a>
-        <a class="card-link" href="../esperienze.html"><span>Esperienza Erasmus</span><i class="card-chevron" aria-hidden="true"></i></a>
-        <a class="card-link" href="cosafare.php"><span>Cosa Fare</span><i class="card-chevron" aria-hidden="true"></i></a>
-        <a class="card-link" href="contatti.php"><span>Contatti e link</span><i class="card-chevron" aria-hidden="true"></i></a>
+        <a class="card-link" href="esperienze.php"><span>Esperienza Erasmus</span><i class="card-chevron" aria-hidden="true"></i></a>
+        <a class="card-link" href="../contatti.html"><span>Contatti e link</span><i class="card-chevron" aria-hidden="true"></i></a>
         
         <?php if ($currentUser): ?>
           <a class="card-link logout-link" href="logout.php"><span>Logout</span><i class="card-chevron" aria-hidden="true"></i></a>
@@ -164,9 +163,8 @@ try {
       <nav class="footer-links" aria-label="Collegamenti">
         <a href="../index.php">Home</a>
         <a href="universita.php">Università</a>
-        <a href="../esperienze.html">Esperienze</a>
-        <a href="cosafare.php">Cosa Fare</a>
-        <a href="contatti.php">Contatti</a>
+        <a href="esperienze.php">Esperienze</a>
+        <a href="../contatti.html">Contatti</a>
       </nav>
 
       <div class="footer-contact">
