@@ -4,7 +4,7 @@ require_once 'config.php';
 
 // Verificar que el usuario esté logueado
 if (!isLoggedIn()) {
-    header('Location: ../login.html?error=Devi essere loggato per accedere al profilo');
+    header('Location: login.php?error=Devi essere loggato per accedere al profilo');
     exit();
 }
 
@@ -128,7 +128,7 @@ try {
     $utente = $stmt->fetch();
     
     if (!$utente) {
-        header('Location: ../login.html?error=Usuario no encontrado');
+        header('Location: login.php?error=Usuario no encontrado');
         exit();
     }
     
