@@ -58,8 +58,7 @@ try {
       <!-- Nav escritorio -->
       <nav class="desktop-nav" aria-label="Menu principale">
         <a href="universita.php">Università</a>
-        <a href="../esperienze.html">Esperienza Erasmus</a>
-        <a href="../cosafare.html">Cosa Fare</a>
+        <a href="esperienze.php">Esperienza Erasmus</a>
         <a href="../contatti.html">Contatti e link</a>
       </nav>
 
@@ -78,7 +77,7 @@ try {
             </div>
           </div>
         <?php else: ?>
-          <a class="btn-login" href="../login.html" aria-label="Accedi">Accedi</a>
+          <a class="btn-login" href="login.php" aria-label="Accedi">Accedi</a>
         <?php endif; ?>
       </div>
     </div>
@@ -105,14 +104,13 @@ try {
         <?php endif; ?>
         
         <a class="card-link" href="universita.php"><span>Università</span><i class="card-chevron" aria-hidden="true"></i></a>
-        <a class="card-link" href="../esperienze.html"><span>Esperienza Erasmus</span><i class="card-chevron" aria-hidden="true"></i></a>
-        <a class="card-link" href="../cosafare.html"><span>Cosa Fare</span><i class="card-chevron" aria-hidden="true"></i></a>
+        <a class="card-link" href="esperienze.php"><span>Esperienza Erasmus</span><i class="card-chevron" aria-hidden="true"></i></a>
         <a class="card-link" href="../contatti.html"><span>Contatti e link</span><i class="card-chevron" aria-hidden="true"></i></a>
         
         <?php if ($currentUser): ?>
           <a class="card-link logout-link" href="logout.php"><span>Logout</span><i class="card-chevron" aria-hidden="true"></i></a>
         <?php else: ?>
-          <a class="card-link" href="../login.html"><span>Accedi</span><i class="card-chevron" aria-hidden="true"></i></a>
+          <a class="card-link" href="login.php"><span>Accedi</span><i class="card-chevron" aria-hidden="true"></i></a>
         <?php endif; ?>
       </nav>
     </div>
@@ -219,8 +217,7 @@ try {
       <nav class="footer-links" aria-label="Collegamenti">
         <a href="../index.php">Home</a>
         <a href="universita.php">Università</a>
-        <a href="../esperienze.html">Esperienze</a>
-        <a href="../cosafare.html">Cosa Fare</a>
+        <a href="esperienze.php">Esperienze</a>
         <a href="../contatti.html">Contatti</a>
       </nav>
 
