@@ -115,7 +115,6 @@ INSERT INTO cosa_fare (title,city,category,period,image,short_desc,long_desc) VA
  'Spritz e cicchetti: rito serale veneto.',
  '<p>Ideale per socializzare: prova i bacari e i cicchetti tradizionali.</p>');
 
-
  -- Primero, agregar columna 'role' a la tabla Utente si no existe
 ALTER TABLE Utente ADD COLUMN IF NOT EXISTS role VARCHAR(20) DEFAULT 'user';
 
@@ -132,4 +131,3 @@ VALUES (
 ) ON CONFLICT (username) DO UPDATE SET
     password = EXCLUDED.password,
     role = EXCLUDED.role;
-

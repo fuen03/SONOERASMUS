@@ -56,7 +56,6 @@ try {
       <nav class="desktop-nav" aria-label="Menu principale">
         <a href="universita.php">Università</a>
         <a href="../esperienze.html">Esperienza Erasmus</a>
-        <a href="cosafare.php">Cosa Fare</a>
         <a href="contatti.php">Contatti e link</a>
       </nav>
 
@@ -186,3 +185,4 @@ try {
 <script src="../assets/js/user-system.js" defer></script>
 </body>
 </html>
+
