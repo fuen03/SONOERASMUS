@@ -38,7 +38,7 @@ $currentUser = getCurrentUser($pdo);
         <a href="index.php"        class="<?= basename($_SERVER['PHP_SELF'])==='index.php'        ? 'is-selected' : '' ?>">Pagina Iniziale</a>
         <a href="app/universita.php"   class="<?= basename($_SERVER['PHP_SELF'])==='app/universita.php'   ? 'is-selected' : '' ?>">Università</a>
         <a href="app/esperienze.php"   class="<?= basename($_SERVER['PHP_SELF'])==='app/esperienze.php'   ? 'is-selected' : '' ?>">Esperienza Erasmus</a>
-        <a href="contatti.html"     class="<?= basename($_SERVER['PHP_SELF'])==='contatti.html'     ? 'is-selected' : '' ?>">Contatti e link</a>
+        <a href="app/contatti.php"     class="<?= basename($_SERVER['PHP_SELF'])==='app/contatti.php'     ? 'is-selected' : '' ?>">Contatti e link</a>
 
         <?php if (isAdmin()): ?>
           <a href="app/dashboard.php"  class="<?= basename($_SERVER['PHP_SELF'])==='../dashboard.php'    ? 'is-selected' : '' ?>">Dashboard</a>
@@ -159,22 +159,22 @@ $currentUser = getCurrentUser($pdo);
 
           <figure class="rail-item">
             <a href="app/universita_dettaglio.php?id=2">
-              <div class="logo-placeholder" role="img" aria-label="Università di Firenze, logo"></div>
-              <figcaption>Università di Firenze</figcaption>
+              <div class="logo-placeholder" role="img" aria-label="Universitat de Barcelona, logo"></div>
+              <figcaption>Universitat de Barcelona</figcaption>
             </a>
           </figure>
 
           <figure class="rail-item">
             <a href="app/universita_dettaglio.php?id=3">
-              <div class="logo-placeholder" role="img" aria-label="Università di Roma, logo"></div>
-              <figcaption>Università di Roma</figcaption>
+              <div class="logo-placeholder" role="img" aria-label="UUniversità di Bologna, logo"></div>
+              <figcaption>Università di Bologna</figcaption>
             </a>
           </figure>
 
           <figure class="rail-item">
             <a href="app/universita_dettaglio.php?id=4">
-              <div class="logo-placeholder" role="img" aria-label="Università di Udine, logo"></div>
-              <figcaption>Università di Udine</figcaption>
+              <div class="logo-placeholder" role="img" aria-label="Sapienza – Università di Roma, logo"></div>
+              <figcaption>Sapienza – Università di Roma</figcaption>
             </a>
           </figure>
         </div>
