@@ -353,5 +353,7 @@ if (!function_exists('h')) {
     menu.addEventListener('focusout', scheduleClose);
   })();
   </script>
+  <script defer src="../assets/js/user-menu.js"></script>
+
 </body>
 </html>
