@@ -166,12 +166,16 @@ try {
       </a>
 
       <nav class="desktop-nav" aria-label="Navigazione principale">
-        <a href="../index.php">Pagina Iniziale</a>
-        <a href="universita.php">Università</a>
-        <a href="esperienze.php" aria-current="page">Esperienza Erasmus</a>
-        <a href="cosafare.php">Cosa Fare</a>
-        <a href="contatti.php">Contatti e link</a>
+        <a href="../index.php"        class="<?= basename($_SERVER['PHP_SELF'])==='index.php'        ? 'is-selected' : '' ?>">Pagina Iniziale</a>
+        <a href="universita.php"   class="<?= basename($_SERVER['PHP_SELF'])==='universita.php'   ? 'is-selected' : '' ?>">Università</a>
+        <a href="esperienze.php"   class="<?= basename($_SERVER['PHP_SELF'])==='esperienze.php'   ? 'is-selected' : '' ?>">Esperienza Erasmus</a>
+        <a href="../contatti.html"     class="<?= basename($_SERVER['PHP_SELF'])==='contatti.php'     ? 'is-selected' : '' ?>">Contatti e link</a>
+
+        <?php if (isAdmin()): ?>
+          <a href="dashboard.php"  class="<?= basename($_SERVER['PHP_SELF'])==='dashboard.php'    ? 'is-selected' : '' ?>">Dashboard</a>
+        <?php endif; ?>
       </nav>
+
 
       <div class="auth-actions">
         <?php if (isLoggedIn()): ?>
@@ -203,6 +207,9 @@ try {
         <a class="card-link is-selected" href="esperienze.php"><span>Esperienza Erasmus</span><span class="card-chevron"></span></a>
         <a class="card-link" href="cosafare.php"><span>Cosa Fare</span><span class="card-chevron"></span></a>
         <a class="card-link" href="contatti.php"><span>Contatti e link</span><span class="card-chevron"></span></a>
+        <?php if (isAdmin()): ?>
+           <a class="card-link" href="dashboard.php"><span>Dashboard</span><i class="card-chevron" aria-hidden="true"></i></a>
+         <?php endif; ?>
       </nav>
     </div>
   </aside>
