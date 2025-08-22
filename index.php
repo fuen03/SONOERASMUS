@@ -13,7 +13,6 @@ $currentUser = getCurrentUser($pdo);
   <title>SonoErasmus+ — Pagina Iniziale</title>
   <meta name="description" content="SonoErasmus+ — Esperienze, università e attività per studenti Erasmus.">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/unified-styles.css">
 </head>
 <body>
   <!-- HEADER -->
@@ -27,21 +26,25 @@ $currentUser = getCurrentUser($pdo);
       </button>
 
       <!-- Logo -->
-      <a class="brand" href="#home" aria-label="Vai alla pagina iniziale">
+      <a class="brand brand-link-erasmus" href="#home" aria-label="Vai alla pagina iniziale">
         <svg class="brand-logo" width="164" height="28" viewBox="0 0 164 28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-          <text x="0" y="22" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="24" font-weight="900" fill="#c62828">Sono</text>
-          <text x="60" y="22" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif" font-size="24" font-weight="900" fill="#8e0000">Erasmus+</text>
+          <text x="0" y="22" class="brand-logo-text brand-logo-erasmus-color">SonoErasmus</text>
         </svg>
         <span class="visually-hidden">SonoErasmus+</span>
       </a>
 
       <!-- Nav escritorio -->
-      <nav class="desktop-nav" aria-label="Menu principale">
-        <a href="app/universita.php">Università</a>
-        <a href="app/esperienze.php">Esperienza Erasmus</a>
-        <a href="app/cosafare.php">Cosa Fare</a>
-        <a href="app/contatti.php">Contatti e link</a>
+      <nav class="desktop-nav" aria-label="Navigazione principale">
+        <a href="index.php"        class="<?= basename($_SERVER['PHP_SELF'])==='index.php'        ? 'is-selected' : '' ?>">Pagina Iniziale</a>
+        <a href="app/universita.php"   class="<?= basename($_SERVER['PHP_SELF'])==='app/universita.php'   ? 'is-selected' : '' ?>">Università</a>
+        <a href="app/esperienze.php"   class="<?= basename($_SERVER['PHP_SELF'])==='app/esperienze.php'   ? 'is-selected' : '' ?>">Esperienza Erasmus</a>
+        <a href="contatti.html"     class="<?= basename($_SERVER['PHP_SELF'])==='contatti.html'     ? 'is-selected' : '' ?>">Contatti e link</a>
+
+        <?php if (isAdmin()): ?>
+          <a href="app/dashboard.php"  class="<?= basename($_SERVER['PHP_SELF'])==='../dashboard.php'    ? 'is-selected' : '' ?>">Dashboard</a>
+        <?php endif; ?>
       </nav>
+
 
       <!-- Sistema de usuario -->
       <div class="auth-actions">
@@ -88,6 +91,9 @@ $currentUser = getCurrentUser($pdo);
         <a class="card-link" href="app/esperienze.php"><span>Esperienza Erasmus</span><i class="card-chevron" aria-hidden="true"></i></a>
         <a class="card-link" href="app/cosafare.php"><span>Cosa Fare</span><i class="card-chevron" aria-hidden="true"></i></a>
         <a class="card-link" href="app/contatti.php"><span>Contatti e link</span><i class="card-chevron" aria-hidden="true"></i></a>
+         <?php if (isAdmin()): ?>
+           <a class="card-link" href="app/dashboard.php"><span>Dashboard</span><i class="card-chevron" aria-hidden="true"></i></a>
+         <?php endif; ?>
         
         <?php if ($currentUser): ?>
           <a class="card-link logout-link" href="app/logout.php"><span>Logout</span><i class="card-chevron" aria-hidden="true"></i></a>
