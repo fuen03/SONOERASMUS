@@ -244,6 +244,8 @@ try {
 
 <script src="../assets/js/main.js" defer></script>
 <script src="../assets/js/user-system.js" defer></script>
+<script defer src="../assets/js/user-menu.js"></script>
+
 <script>
   // Actualizar el año en el footer
   document.getElementById('year').textContent = new Date().getFullYear();
