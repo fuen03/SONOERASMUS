@@ -1,46 +1,68 @@
 <?php
 session_start();
-require_once 'config.php';
+require_once __DIR__ . '/config.php';
 
-// Verificar que el usuario sea administrador
-requireAdmin();
+// (opcional pero recomendado)
+if (!isAdmin()) {
+  header('Location: index.php');
+  exit;
+}
 
-// Obtener estadísticas
+$total_usuarios = $total_universitas = $total_eventi = $total_partecipazioni = 0;
+$usuarios_recientes = $eventos_proximos = [];
+
 try {
-    // Contar usuarios
-    $stmt = $pdo->query("SELECT COUNT(*) as count FROM Utente");
-    $total_usuarios = $stmt->fetch()['count'];
-    
-    // Contar universidades
-    $stmt = $pdo->query("SELECT COUNT(*) as count FROM Universita");
-    $total_universitas = $stmt->fetch()['count'];
-    
-    // Contar eventos
-    $stmt = $pdo->query("SELECT COUNT(*) as count FROM Evento");
-    $total_eventi = $stmt->fetch()['count'];
-    
-    // Contar participaciones
-    $stmt = $pdo->query("SELECT COUNT(*) as count FROM Partecipazioni");
-    $total_partecipazioni = $stmt->fetch()['count'];
-    
-    // Obtener usuarios recientes
-    $stmt = $pdo->query("SELECT nome, cognome, username, email FROM Utente ORDER BY id DESC LIMIT 5");
-    $usuarios_recientes = $stmt->fetchAll();
-    
-    // Obtener eventos próximos
-    $stmt = $pdo->query("SELECT e.titolo, e.data_evento, e.luogo, u.nome as universita 
-                         FROM Evento e 
-                         LEFT JOIN Universita u ON e.universita_id = u.id 
-                         WHERE e.data_evento >= NOW() 
-                         ORDER BY e.data_evento ASC LIMIT 5");
-    $eventos_proximos = $stmt->fetchAll();
-    
+    // Totale utenti
+    $stmt = $pdo->query("SELECT COUNT(*) AS count FROM Utente");
+    $total_usuarios = (int)$stmt->fetch()['count'];
+
+    // Totale università
+    $stmt = $pdo->query("SELECT COUNT(*) AS count FROM Universita");
+    $total_universitas = (int)$stmt->fetch()['count'];
+
+    // Totale eventi
+    $stmt = $pdo->query("SELECT COUNT(*) AS count FROM Evento");
+    $total_eventi = (int)$stmt->fetch()['count'];
+
+    // Totale partecipazioni  (¡tabla correcta!)
+    $stmt = $pdo->query("SELECT COUNT(*) AS count FROM Partecipazione");
+    $total_partecipazioni = (int)$stmt->fetch()['count'];
+
+    // Utenti recenti
+    $stmt = $pdo->query("
+        SELECT id, username, email, created_at
+        FROM Utente
+        ORDER BY id DESC
+        LIMIT 5
+    ");
+    $usuarios_recientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Eventi prossimi (soporta distintos nombres de columna con COALESCE)
+    $stmt = $pdo->query("
+        SELECT e.id,
+               COALESCE(e.titolo, e.nome, CONCAT('Evento #', e.id)) AS titolo,
+               COALESCE(e.data_evento, e.data, e.dataora)           AS data_evento,
+               u.nome                                               AS universita_nome
+        FROM Evento e
+        LEFT JOIN Universita u ON u.id = e.universita_id
+        WHERE COALESCE(e.data_evento, e.data, e.dataora) >= CURRENT_DATE
+        ORDER BY COALESCE(e.data_evento, e.data, e.dataora) ASC
+        LIMIT 5
+    ");
+    $eventos_proximos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 } catch (PDOException $e) {
-    error_log("Error en dashboard: " . $e->getMessage());
-    $total_usuarios = $total_universitas = $total_eventi = $total_partecipazioni = 0;
-    $usuarios_recientes = $eventos_proximos = [];
+    error_log('Error en dashboard: '.$e->getMessage());
+    // valores por defecto SOLO si no existen (no pisamos los ya calculados)
+    if (!isset($total_usuarios))       $total_usuarios = 0;
+    if (!isset($total_universitas))    $total_universitas = 0;
+    if (!isset($total_eventi))         $total_eventi = 0;
+    if (!isset($total_partecipazioni)) $total_partecipazioni = 0;
+    if (!isset($usuarios_recientes))   $usuarios_recientes = [];
+    if (!isset($eventos_proximos))     $eventos_proximos = [];
 }
 ?>
+
 <!DOCTYPE php>
 <php lang="it">
 <head>
@@ -60,8 +82,8 @@ try {
         
         <nav class="admin-nav">
             <a href="users.php">👥 Gestisci Utenti</a>
-            <a href="universitas.php">🎓 Gestisci Università</a>
-            <a href="eventi.php">📅 Gestisci Eventi</a>
+            <a href="ges-uni.php">🎓 Gestisci Università</a>
+            <a href="ges-ev.php">📅 Gestisci Eventi</a>
             <a href="logout.php">🚪 Logout</a>
             <a href="../index.php">🏠 Torna al Sito</a>
         </nav>
