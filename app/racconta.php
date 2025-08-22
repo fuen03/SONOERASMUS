@@ -1,9 +1,9 @@
 <?php
 // racconta.php
 session_start();
-require_once __DIR__ . '/config.php';   // $pdo + helpers (isLoggedIn(), etc.)
+require_once __DIR__ . '/config.php';   
 
-// 1) Acceso: solo usuarios logueados
+// Acceso: solo usuarios logueados
 if (!isLoggedIn()) {
   // FIXED: Since racconta.php seems to be in app/ directory, redirect to login.php in same directory
   header('Location: login.php?redirect=' . urlencode('racconta.php'));
@@ -13,7 +13,7 @@ if (!isLoggedIn()) {
 $errors  = [];
 $success = false;
 
-// 2) Cargar universidades (para el <select>)
+// Universidades 
 $universita = [];
 try {
   $stmt = $pdo->query("SELECT id, nome FROM Universita ORDER BY nome ASC");
@@ -23,7 +23,7 @@ try {
   error_log('Error loading universities: ' . $e->getMessage());
 }
 
-// 3) Procesar envío
+//  Procesar envío
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $uid   = (int)($_SESSION['utente_id'] ?? 0);
   $uniId = (int)($_POST['universita'] ?? 0);
@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors[] = 'Scrivi il tuo racconto.';
   }
 
-  // Subida de imagen (opcional)
+  // Subida de imagen 
   $imagePath = null;
   if (!empty($_FILES['image']['name']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
     $ext = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 }
 
-// Helper h() si no viene de config.php
+// Helper h() 
 if (!function_exists('h')) {
   function h($v){ return htmlspecialchars((string)$v, ENT_QUOTES, 'UTF-8'); }
 }

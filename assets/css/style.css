@@ -750,3 +750,12 @@ body { width: 100%; overflow-x: hidden; }
 
 
 img, svg, video, canvas { max-width: 100%; height: auto; display: block; }
+
+.menu-toggle-bar {
+  display: block;       
+  width: 25px;          
+  height: 3px;         
+  background-color: #333; 
+  margin: 5px 0;        
+  border-radius: 2px;  
+}

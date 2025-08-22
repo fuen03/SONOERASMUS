@@ -64,7 +64,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'delet
 // --- Listar eventos ---
 $eventi = [];
 try {
-  // Soporta distintos nombres de columnas con COALESCE (data, data_evento, dataora / luogo, location / titolo, nome)
   $q = "
     SELECT
       e.id,

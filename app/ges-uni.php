@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'delet
   }
 }
 
-// --- Listar universidades (con conteos opcionales) ---
+// --- Listar universidades ---
 $universita = [];
 try {
   $q = "

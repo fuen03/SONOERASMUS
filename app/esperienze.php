@@ -339,8 +339,7 @@ try {
         <a href="../index.php">Home</a>
         <a href="universita.php">Università</a>
         <a href="esperienze.php" aria-current="page">Esperienze</a>
-        <a href="cosafare.php">Cosa Fare</a>
-        <a href="contatti.php">Contatti</a>
+        <a href="../contatti.html">Contatti</a>
       </nav>
       <div class="footer-contact">
         <strong class="footer-title">Contatti</strong>
